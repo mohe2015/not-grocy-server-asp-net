@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace not_grocy_server_asp.net
+namespace not_grocy_server_asp_net
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace not_grocy_server_asp.net
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v3", new OpenApiInfo { Title = "not_grocy_server_asp.net", Version = "v3" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "not_grocy_server_asp_net", Version = "v1" });
             });
         }
 
@@ -41,7 +41,7 @@ namespace not_grocy_server_asp.net
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v3/swagger.json", "not_grocy_server_asp.net v3"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "not_grocy_server_asp_net v1"));
             }
 
             app.UseHttpsRedirection();

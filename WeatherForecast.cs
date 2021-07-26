@@ -1,6 +1,6 @@
 using System;
 
-namespace not_grocy_server_asp.net
+namespace not_grocy_server_asp_net
 {
     public class WeatherForecast
     {

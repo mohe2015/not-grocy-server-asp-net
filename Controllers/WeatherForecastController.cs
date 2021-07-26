@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace not_grocy_server_asp.net.Controllers
+namespace not_grocy_server_asp_net.Controllers
 {
     [ApiController]
     [Route("[controller]")]

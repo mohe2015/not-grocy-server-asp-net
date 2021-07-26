@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace not_grocy_server_asp.net
+namespace not_grocy_server_asp_net
 {
     public class Program
     {

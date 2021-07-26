@@ -1,5 +1,5 @@
 {
-  description = "not-grocy-server-asp.net's development flake";
+  description = "not-grocy-server-asp-net's development flake";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
