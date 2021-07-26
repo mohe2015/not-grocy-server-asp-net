@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using StockApi.Models;
 
 namespace not_grocy_server_asp_net
 {
@@ -28,6 +30,10 @@ namespace not_grocy_server_asp_net
         {
 
             services.AddControllers();
+
+            services.AddDbContext<StockContext>(opt =>
+                                               opt.UseInMemoryDatabase("StockList"));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "not_grocy_server_asp_net", Version = "v1" });

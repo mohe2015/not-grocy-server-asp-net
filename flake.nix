@@ -14,10 +14,11 @@
               (with pkgs.dotnetCorePackages; combinePackages [
                 aspnetcore_5_0
                 sdk_5_0
-                # net_5_0
+                net_5_0
               ])
               pkgs.mono
               pkgs.vscode
+              pkgs.msbuild
             ];
           };
         }
