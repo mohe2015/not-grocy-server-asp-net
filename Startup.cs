@@ -30,7 +30,7 @@ namespace not_grocy_server_asp.net
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "not_grocy_server_asp.net", Version = "v1" });
+                c.SwaggerDoc("v3", new OpenApiInfo { Title = "not_grocy_server_asp.net", Version = "v3" });
             });
         }
 
@@ -41,7 +41,7 @@ namespace not_grocy_server_asp.net
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "not_grocy_server_asp.net v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v3/swagger.json", "not_grocy_server_asp.net v3"));
             }
 
             app.UseHttpsRedirection();
