@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using StockApi.Models;
+using NotGrocy.Models;
 
-namespace not_grocy_server_asp_net.Migrations
+namespace NotGrocy.Migrations
 {
     [DbContext(typeof(StockContext))]
     [Migration("20210727154920_InitialCreate")]

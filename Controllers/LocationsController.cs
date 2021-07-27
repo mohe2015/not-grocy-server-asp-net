@@ -11,47 +11,47 @@ namespace not_grocy_server_asp_net.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StockItemsController : ControllerBase
+    public class LocationsController : ControllerBase
     {
-        private readonly StockContext _context;
+        private readonly LocationContext _context;
 
-        public StockItemsController(StockContext context)
+        public LocationsController(LocationContext context)
         {
             _context = context;
         }
 
-        // GET: api/StockItems
+        // GET: api/Locations
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<StockItem>>> GetStockItems()
+        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
         {
-            return await _context.StockItems.ToListAsync();
+            return await _context.Locations.ToListAsync();
         }
 
-        // GET: api/StockItems/5
+        // GET: api/Locations/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<StockItem>> GetStockItem(long id)
+        public async Task<ActionResult<Location>> GetLocation(long id)
         {
-            var stockItem = await _context.StockItems.FindAsync(id);
+            var location = await _context.Locations.FindAsync(id);
 
-            if (stockItem == null)
+            if (location == null)
             {
                 return NotFound();
             }
 
-            return stockItem;
+            return location;
         }
 
-        // PUT: api/StockItems/5
+        // PUT: api/Locations/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutStockItem(long id, StockItem stockItem)
+        public async Task<IActionResult> PutLocation(long id, Location location)
         {
-            if (id != stockItem.Id)
+            if (id != location.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(stockItem).State = EntityState.Modified;
+            _context.Entry(location).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace not_grocy_server_asp_net.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StockItemExists(id))
+                if (!LocationExists(id))
                 {
                     return NotFound();
                 }
@@ -72,36 +72,36 @@ namespace not_grocy_server_asp_net.Controllers
             return NoContent();
         }
 
-        // POST: api/StockItems
+        // POST: api/Locations
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<StockItem>> PostStockItem(StockItem stockItem)
+        public async Task<ActionResult<Location>> PostLocation(Location location)
         {
-            _context.StockItems.Add(stockItem);
+            _context.Locations.Add(location);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetStockItem", new { id = stockItem.Id }, stockItem);
+            return CreatedAtAction("GetLocation", new { id = location.Id }, location);
         }
 
-        // DELETE: api/StockItems/5
+        // DELETE: api/Locations/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteStockItem(long id)
+        public async Task<IActionResult> DeleteLocation(long id)
         {
-            var stockItem = await _context.StockItems.FindAsync(id);
-            if (stockItem == null)
+            var location = await _context.Locations.FindAsync(id);
+            if (location == null)
             {
                 return NotFound();
             }
 
-            _context.StockItems.Remove(stockItem);
+            _context.Locations.Remove(location);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool StockItemExists(long id)
+        private bool LocationExists(long id)
         {
-            return _context.StockItems.Any(e => e.Id == id);
+            return _context.Locations.Any(e => e.Id == id);
         }
     }
 }

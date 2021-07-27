@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using StockApi.Data;
-using StockApi.Models;
+using NotGrocy.Data;
+using NotGrocy.Models;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace not_grocy_server_asp_net

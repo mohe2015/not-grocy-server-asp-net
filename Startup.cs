@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
-using StockApi.Models;
+using NotGrocy.Models;
 using Microsoft.Data.Sqlite;
 
 namespace not_grocy_server_asp_net
@@ -32,8 +32,8 @@ namespace not_grocy_server_asp_net
             var connection = new SqliteConnection("Data Source=hello.db");
             connection.Open();
 
-            services.AddDbContext<StockContext>(opt =>
-                                               opt.UseSqlite(connection));
+            services.AddDbContext<StockContext>(opt => opt.UseSqlite(connection));
+            services.AddDbContext<LocationContext>(opt => opt.UseSqlite(connection));
 
             services.AddControllers();
 

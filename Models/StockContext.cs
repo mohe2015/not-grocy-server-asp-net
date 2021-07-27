@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace StockApi.Models
+namespace NotGrocy.Models
 {
     public class StockContext : DbContext
     {

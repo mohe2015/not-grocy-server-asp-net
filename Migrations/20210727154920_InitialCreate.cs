@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace not_grocy_server_asp_net.Migrations
+namespace NotGrocy.Migrations
 {
     public partial class InitialCreate : Migration
     {

@@ -1,8 +1,8 @@
-using StockApi.Models;
+using NotGrocy.Models;
 using System;
 using System.Linq;
 
-namespace StockApi.Data
+namespace NotGrocy.Data
 {
     public static class DbInitializer
     {

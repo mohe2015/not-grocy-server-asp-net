@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace StockApi.Models
+namespace NotGrocy.Models
 {
     [Table("stock")]
     public class StockItem
