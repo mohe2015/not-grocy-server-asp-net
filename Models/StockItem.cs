@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace StockApi.Models
 {
@@ -20,6 +21,7 @@ namespace StockApi.Models
         public DateTime? PurchasedDate { get; set; }
 
         [Column("stock_id")]
+        [Required]
         public string StockId { get; set; }
 
         public double? Price { get; set; }
