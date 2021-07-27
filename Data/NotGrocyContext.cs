@@ -26,6 +26,29 @@ namespace NotGrocy
         public virtual DbSet<Equipment> Equipment { get; set; }
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<MealPlan> MealPlans { get; set; }
+        public virtual DbSet<PermissionHierarchy> PermissionHierarchies { get; set; }
+        public virtual DbSet<ProductBarcode> ProductBarcodes { get; set; }
+        public virtual DbSet<ProductGroup> ProductGroups { get; set; }
+        public virtual DbSet<QuantityUnit> QuantityUnits { get; set; }
+        public virtual DbSet<QuantityUnitConversion> QuantityUnitConversions { get; set; }
+        public virtual DbSet<Recipe> Recipes { get; set; }
+        public virtual DbSet<RecipesNesting> RecipesNestings { get; set; }
+        public virtual DbSet<RecipesPo> RecipesPos { get; set; }
+        public virtual DbSet<Session> Sessions { get; set; }
+        public virtual DbSet<ShoppingList> ShoppingLists { get; set; }
+        public virtual DbSet<ShoppingList1> ShoppingLists1 { get; set; }
+        public virtual DbSet<ShoppingLocation> ShoppingLocations { get; set; }
+        public virtual DbSet<Stock> Stocks { get; set; }
+        public virtual DbSet<StockLog> StockLogs { get; set; }
+        public virtual DbSet<Task> Tasks { get; set; }
+        public virtual DbSet<TaskCategory> TaskCategories { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserPermission> UserPermissions { get; set; }
+        public virtual DbSet<UserSetting> UserSettings { get; set; }
+        public virtual DbSet<Userentity> Userentities { get; set; }
+        public virtual DbSet<Userfield> Userfields { get; set; }
+        public virtual DbSet<UserfieldValue> UserfieldValues { get; set; }
+        public virtual DbSet<Userobject> Userobjects { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -94,6 +117,135 @@ namespace NotGrocy
                 entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
 
                 entity.Property(e => e.Type).HasDefaultValueSql("'recipe'");
+            });
+
+            modelBuilder.Entity<ProductBarcode>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<ProductGroup>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<QuantityUnit>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<QuantityUnitConversion>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<Recipe>(entity =>
+            {
+                entity.Property(e => e.BaseServings).HasDefaultValueSql("1");
+
+                entity.Property(e => e.DesiredServings).HasDefaultValueSql("1");
+
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+
+                entity.Property(e => e.Type).HasDefaultValueSql("'normal'");
+            });
+
+            modelBuilder.Entity<RecipesNesting>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+
+                entity.Property(e => e.Servings).HasDefaultValueSql("1");
+            });
+
+            modelBuilder.Entity<RecipesPo>(entity =>
+            {
+                entity.Property(e => e.PriceFactor).HasDefaultValueSql("1");
+
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<Session>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<ShoppingList>(entity =>
+            {
+                entity.Property(e => e.Amount).HasDefaultValueSql("0");
+
+                entity.Property(e => e.Done).HasDefaultValueSql("0");
+
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+
+                entity.Property(e => e.ShoppingListId).HasDefaultValueSql("1");
+            });
+
+            modelBuilder.Entity<ShoppingList1>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<ShoppingLocation>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<Stock>(entity =>
+            {
+                entity.Property(e => e.PurchasedDate).HasDefaultValueSql("datetime('now', 'localtime')");
+
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<StockLog>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+
+                entity.Property(e => e.UserId).HasDefaultValueSql("1");
+            });
+
+            modelBuilder.Entity<Task>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<TaskCategory>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<UserSetting>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+
+                entity.Property(e => e.RowUpdatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<Userentity>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+
+                entity.Property(e => e.ShowInSidebarMenu).HasDefaultValueSql("1");
+            });
+
+            modelBuilder.Entity<Userfield>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<UserfieldValue>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
+            });
+
+            modelBuilder.Entity<Userobject>(entity =>
+            {
+                entity.Property(e => e.RowCreatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
             });
 
             OnModelCreatingPartial(modelBuilder);
