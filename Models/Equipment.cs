@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace NotGrocy.Models
 {
-    [Table("locations")]
+    [Table("equipment")]
     [Index(nameof(Id), IsUnique = true)]
     [Index(nameof(Name), IsUnique = true)]
-    public partial class Location
+    public partial class Equipment
     {
         [Key]
         [Column("id")]
@@ -21,9 +21,9 @@ namespace NotGrocy.Models
         public string Name { get; set; }
         [Column("description")]
         public string Description { get; set; }
+        [Column("instruction_manual_file_name")]
+        public string InstructionManualFileName { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public byte[] RowCreatedTimestamp { get; set; }
-        [Column("is_freezer", TypeName = "TINYINT")]
-        public long IsFreezer { get; set; }
     }
 }

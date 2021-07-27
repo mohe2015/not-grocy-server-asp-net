@@ -20,5 +20,5 @@ dotnet aspnet-codegenerator controller -name LocationsController -async -api -m 
 
 https://docs.microsoft.com/en-us/ef/core/managing-schemas/scaffolding?tabs=dotnet-core-cli
 ```
-dotnet ef dbcontext scaffold "Data Source=hello.db" Microsoft.EntityFrameworkCore.Sqlite
+dotnet ef dbcontext scaffold "Data Source=hello.db" Microsoft.EntityFrameworkCore.Sqlite --data-annotations --context NotGrocyContext --context-dir Data --output-dir Models --namespace NotGrocy.Models --context-namespace NotGrocy --force --verbose --table api_keys --table batteries --table battery_charge_cycles --table chores --table chores_log --table equipment --table locations --table meal_plan
 ```

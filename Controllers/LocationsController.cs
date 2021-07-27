@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NotGrocy.Models;
+using NotGrocy;
 
 namespace not_grocy_server_asp_net.Controllers
 {
@@ -13,9 +14,9 @@ namespace not_grocy_server_asp_net.Controllers
     [ApiController]
     public class LocationsController : ControllerBase
     {
-        private readonly LocationContext _context;
+        private readonly NotGrocyContext _context;
 
-        public LocationsController(LocationContext context)
+        public LocationsController(NotGrocyContext context)
         {
             _context = context;
         }

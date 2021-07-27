@@ -8,22 +8,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace NotGrocy.Models
 {
-    [Table("locations")]
+    [Table("battery_charge_cycles")]
     [Index(nameof(Id), IsUnique = true)]
-    [Index(nameof(Name), IsUnique = true)]
-    public partial class Location
+    public partial class BatteryChargeCycle
     {
         [Key]
         [Column("id")]
         public long Id { get; set; }
         [Required]
-        [Column("name")]
-        public string Name { get; set; }
-        [Column("description")]
-        public string Description { get; set; }
+        [Column("battery_id")]
+        public string BatteryId { get; set; }
+        [Column("tracked_time", TypeName = "DATETIME")]
+        public byte[] TrackedTime { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public byte[] RowCreatedTimestamp { get; set; }
-        [Column("is_freezer", TypeName = "TINYINT")]
-        public long IsFreezer { get; set; }
+        [Column("undone", TypeName = "TINYINT")]
+        public long Undone { get; set; }
+        [Column("undone_timestamp", TypeName = "DATETIME")]
+        public byte[] UndoneTimestamp { get; set; }
     }
 }
