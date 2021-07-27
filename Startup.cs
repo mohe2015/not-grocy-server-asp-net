@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using StockApi.Models;
+using Microsoft.Data.Sqlite;
 
 namespace not_grocy_server_asp_net
 {
@@ -31,8 +32,11 @@ namespace not_grocy_server_asp_net
 
             services.AddControllers();
 
+            var connection = new SqliteConnection("Data Source=hello.db");
+            connection.Open();
+
             services.AddDbContext<StockContext>(opt =>
-                                               opt.UseInMemoryDatabase("StockList"));
+                                               opt.UseSqlite(connection));
 
             services.AddSwaggerGen(c =>
             {
