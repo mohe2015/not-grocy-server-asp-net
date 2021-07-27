@@ -15,3 +15,10 @@ dotnet tool install --global dotnet-aspnet-codegenerator
 ```
 dotnet aspnet-codegenerator controller -name LocationsController -async -api -m Location -dc LocationContext -outDir Controllers
 ```
+
+### Reverse engineer database
+
+https://docs.microsoft.com/en-us/ef/core/managing-schemas/scaffolding?tabs=dotnet-core-cli
+```
+dotnet ef dbcontext scaffold "Data Source=hello.db" Microsoft.EntityFrameworkCore.Sqlite
+```
