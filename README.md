@@ -2,3 +2,5 @@
 
 export DOTNET_ROOT=$(dirname $(realpath $(which dotnet)))
 export PATH="$PATH:$HOME/.dotnet/tools"
+
+dotnet tool install --global dotnet-ef
