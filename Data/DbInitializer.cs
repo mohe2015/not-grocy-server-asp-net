@@ -8,8 +8,6 @@ namespace NotGrocy.Data
     {
         public static void Initialize(NotGrocyContext context)
         {
-            context.Database.EnsureCreated();
-
             // Look for any stock items.
             if (context.Stocks.Any())
             {
