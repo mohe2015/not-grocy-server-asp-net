@@ -20,8 +20,8 @@ namespace StockApi.Models
         [Column("purchased_date")]
         public DateTime? PurchasedDate { get; set; }
 
-        [Column("stock_id")]
         [Required]
+        [Column("stock_id")]
         public string StockId { get; set; }
 
         public double? Price { get; set; }

@@ -29,14 +29,13 @@ namespace not_grocy_server_asp_net
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddControllers();
-
             var connection = new SqliteConnection("Data Source=hello.db");
             connection.Open();
 
             services.AddDbContext<StockContext>(opt =>
                                                opt.UseSqlite(connection));
+
+            services.AddControllers();
 
             services.AddSwaggerGen(c =>
             {
