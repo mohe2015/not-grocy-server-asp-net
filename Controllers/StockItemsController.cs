@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NotGrocy.Models;
+using NotGrocy;
 
 namespace not_grocy_server_asp_net.Controllers
 {
@@ -13,25 +14,25 @@ namespace not_grocy_server_asp_net.Controllers
     [ApiController]
     public class StockItemsController : ControllerBase
     {
-        private readonly StockContext _context;
+        private readonly NotGrocyContext _context;
 
-        public StockItemsController(StockContext context)
+        public StockItemsController(NotGrocyContext context)
         {
             _context = context;
         }
 
         // GET: api/StockItems
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<StockItem>>> GetStockItems()
+        public async Task<ActionResult<IEnumerable<Stock>>> GetStockItems()
         {
-            return await _context.StockItems.ToListAsync();
+            return await _context.Stocks.ToListAsync();
         }
 
         // GET: api/StockItems/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<StockItem>> GetStockItem(long id)
+        public async Task<ActionResult<Stock>> GetStockItem(long id)
         {
-            var stockItem = await _context.StockItems.FindAsync(id);
+            var stockItem = await _context.Stocks.FindAsync(id);
 
             if (stockItem == null)
             {
@@ -44,7 +45,7 @@ namespace not_grocy_server_asp_net.Controllers
         // PUT: api/StockItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutStockItem(long id, StockItem stockItem)
+        public async Task<IActionResult> PutStockItem(long id, Stock stockItem)
         {
             if (id != stockItem.Id)
             {
@@ -75,9 +76,9 @@ namespace not_grocy_server_asp_net.Controllers
         // POST: api/StockItems
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<StockItem>> PostStockItem(StockItem stockItem)
+        public async Task<ActionResult<Stock>> PostStockItem(Stock stockItem)
         {
-            _context.StockItems.Add(stockItem);
+            _context.Stocks.Add(stockItem);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetStockItem", new { id = stockItem.Id }, stockItem);
@@ -87,13 +88,13 @@ namespace not_grocy_server_asp_net.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStockItem(long id)
         {
-            var stockItem = await _context.StockItems.FindAsync(id);
+            var stockItem = await _context.Stocks.FindAsync(id);
             if (stockItem == null)
             {
                 return NotFound();
             }
 
-            _context.StockItems.Remove(stockItem);
+            _context.Stocks.Remove(stockItem);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -101,7 +102,7 @@ namespace not_grocy_server_asp_net.Controllers
 
         private bool StockItemExists(long id)
         {
-            return _context.StockItems.Any(e => e.Id == id);
+            return _context.Stocks.Any(e => e.Id == id);
         }
     }
 }

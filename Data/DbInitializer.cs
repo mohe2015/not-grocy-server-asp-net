@@ -6,23 +6,23 @@ namespace NotGrocy.Data
 {
     public static class DbInitializer
     {
-        public static void Initialize(StockContext context)
+        public static void Initialize(NotGrocyContext context)
         {
             context.Database.EnsureCreated();
 
             // Look for any stock items.
-            if (context.StockItems.Any())
+            if (context.Stocks.Any())
             {
                 return;   // DB has been seeded
             }
 
-            var stockItems = new StockItem[]
+            var stockItems = new Stock[]
             {
             
             };
-            foreach (StockItem s in stockItems)
+            foreach (Stock s in stockItems)
             {
-                context.StockItems.Add(s);
+                context.Stocks.Add(s);
             }
             context.SaveChanges();
         }
