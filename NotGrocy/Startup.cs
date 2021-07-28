@@ -39,7 +39,7 @@ namespace NotGrocy
                 {
                     "Sqlite" => options.UseSqlite(
                         Configuration.GetConnectionString("SqliteConnection"),
-                        x => x.MigrationsAssembly("SqliteMigrations")),
+                        x => x.MigrationsAssembly("NotGrocy.SqliteMigrations")),
                     "Postgresql" => options.UseNpgsql(
                         Configuration.GetConnectionString("PostgresqlConnection"),
                         x => x.MigrationsAssembly("PostgresqlMigrations")),

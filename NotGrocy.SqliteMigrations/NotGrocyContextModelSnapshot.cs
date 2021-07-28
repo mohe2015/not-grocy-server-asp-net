@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NotGrocy;
 
-namespace NotGrocy.Migrations
+namespace NotGrocy.SqliteMigrations
 {
     [DbContext(typeof(NotGrocyContext))]
     partial class NotGrocyContextModelSnapshot : ModelSnapshot

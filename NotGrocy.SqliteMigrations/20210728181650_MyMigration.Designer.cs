@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NotGrocy;
 
-namespace NotGrocy.Migrations
+namespace NotGrocy.SqliteMigrations
 {
     [DbContext(typeof(NotGrocyContext))]
     [Migration("20210728181650_MyMigration")]

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace NotGrocy.Migrations
+namespace NotGrocy.SqliteMigrations
 {
     public partial class MyMigration : Migration
     {

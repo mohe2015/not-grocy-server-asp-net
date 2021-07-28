@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NotGrocy.Data\NotGrocy.Data.csproj" />
+    <ProjectReference Include="..\NotGrocy.SqliteMigrations\NotGrocy.SqliteMigrations.csproj" />
   </ItemGroup>
 
 </Project>
