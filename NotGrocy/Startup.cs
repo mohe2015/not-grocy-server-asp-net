@@ -16,7 +16,7 @@ using NotGrocy.Models;
 using NotGrocy;
 using Microsoft.Data.Sqlite;
 
-namespace not_grocy_server_asp_net
+namespace NotGrocy
 {
     public class Startup
     {
@@ -30,16 +30,32 @@ namespace not_grocy_server_asp_net
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = new SqliteConnection("Data Source=hello.db");
-            connection.Open();
+            // https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/providers?tabs=dotnet-core-cli
+            // Set the active provider via configuration
+            var provider = Configuration.GetValue("Provider", "Postgresql");
 
-            services.AddDbContext<NotGrocyContext>();
+            services.AddDbContext<NotGrocyContext>(
+                options => _ = provider switch
+                {
+                    "Sqlite" => options.UseSqlite(
+                        Configuration.GetConnectionString("SqliteConnection"),
+                        x => x.MigrationsAssembly("NotGrocy.SqliteMigrations")),
+                    "Postgresql" => options.UseNpgsql(
+                        Configuration.GetConnectionString("PostgresqlConnection"),
+                        x => x.MigrationsAssembly("PostgresqlMigrations")),
+                    "Mysql" => options.UseMySql(
+                        Configuration.GetConnectionString("MysqlConnection"),
+                        Microsoft.EntityFrameworkCore.ServerVersion.Parse(Configuration.GetConnectionString("MysqlConnection")),
+                        x => x.MigrationsAssembly("MysqlMigrations")),
 
+                    _ => throw new Exception($"Unsupported provider: {provider}")
+                });
+            
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "not_grocy_server_asp_net", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "NotGrocy", Version = "v1" });
             });
         }
 
@@ -50,7 +66,7 @@ namespace not_grocy_server_asp_net
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "not_grocy_server_asp_net v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NotGrocy v1"));
             }
 
             app.UseHttpsRedirection();

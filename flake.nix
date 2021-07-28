@@ -17,8 +17,9 @@
                 net_5_0
               ])
               pkgs.mono
-              pkgs.vscode
+              #pkgs.vscode
               pkgs.msbuild
+              pkgs.docker-compose
             ];
           };
         }

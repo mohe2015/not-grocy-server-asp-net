@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace not_grocy_server_asp_net.Migrations
+namespace NotGrocy.SqliteMigrations
 {
-    public partial class InitialCreate : Migration
+    public partial class MyMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -2,17 +2,15 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NotGrocy;
 
-namespace not_grocy_server_asp_net.Migrations
+namespace NotGrocy.SqliteMigrations
 {
     [DbContext(typeof(NotGrocyContext))]
-    [Migration("20210727164709_InitialCreate")]
-    partial class InitialCreate
+    partial class NotGrocyContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+    postgresql:
+            image: postgres
+            environment:
+                - POSTGRES_PASSWORD=password
+    mariadb:
+            image: mariadb
+            environment:
+                - MARIADB_ROOT_PASSWORD=password
+    mysql:
+            image: mysql
+            environment:
+                - MYSQL_ROOT_PASSWORD=password
