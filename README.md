@@ -65,7 +65,7 @@ mv Migrations/* SqliteMigrations/
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <BaseOutputPath>../bin</BaseOutputPath>
++   <BaseOutputPath>../bin</BaseOutputPath>
   </PropertyGroup>
 
 </Project>

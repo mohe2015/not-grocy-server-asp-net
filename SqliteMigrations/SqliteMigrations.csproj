@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\not-grocy-server-asp-net.csproj" />
+    <ProjectReference Include="../NotGrocy/not-grocy-server-asp-net.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <BaseOutputPath>../bin</BaseOutputPath>
+    <BaseOutputPath>../NotGrocy/bin</BaseOutputPath>
   </PropertyGroup>
 
 </Project>
