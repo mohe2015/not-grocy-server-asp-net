@@ -67,3 +67,6 @@ cd ../NotGrocy
 dotnet add reference ../NotGrocy.PostgresqlMigrations
 dotnet ef migrations add MyMigration --project ../NotGrocy.PostgresqlMigrations -- --provider Postgresql
 ```
+
+https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt
+also has notes on nullability

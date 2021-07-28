@@ -17,7 +17,7 @@ namespace NotGrocy.Models
         public long Id { get; set; }
         [Required]
         [Column("day", TypeName = "DATE")]
-        public byte[] Day { get; set; }
+        public DateTime Day { get; set; }
         [Column("type")]
         public string Type { get; set; }
         [Column("recipe_id")]
@@ -33,6 +33,6 @@ namespace NotGrocy.Models
         [Column("product_qu_id")]
         public long? ProductQuId { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
     }
 }
