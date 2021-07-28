@@ -49,7 +49,7 @@ dotnet ef dbcontext scaffold "Data Source=not-grocy.db" Microsoft.EntityFramewor
 
 ```bash
 dotnet ef migrations add MyMigration --project ../NotGrocy.SqliteMigrations -- --provider Sqlite
-dotnet ef migrations add MyMigration --project ../PostgresqlMigrations -- --provider Postgresql
+dotnet ef migrations add MyMigration --project ../NotGrocy.PostgresqlMigrations -- --provider Postgresql
 dotnet ef migrations add MyMigration --project ../MysqlMigrations -- --provider Mysql
 
 dotnet ef migrations remove --project ../NotGrocy.SqliteMigrations -- --provider Sqlite
@@ -60,12 +60,10 @@ dotnet ef migrations remove --project ../NotGrocy.SqliteMigrations -- --provider
 https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/providers?tabs=dotnet-core-cli
 
 ```
-dotnet new classlib --name SqliteMigrations
-cd SqliteMigrations
-dotnet add reference ..
-cd ..
-# comment x => x.MigrationsAssembly("SqliteMigrations") in Startup.cs
-dotnet ef migrations add MyMigration -- --provider Sqlite
-mv Migrations/* SqliteMigrations/
-# uncomment
+dotnet new classlib --name NotGrocy.PostgresqlMigrations
+cd NotGrocy.PostgresqlMigrations
+dotnet add reference ../NotGrocy.Data
+cd ../NotGrocy
+dotnet add reference ../NotGrocy.PostgresqlMigrations
+dotnet ef migrations add MyMigration --project ../NotGrocy.PostgresqlMigrations -- --provider Postgresql
 ```
