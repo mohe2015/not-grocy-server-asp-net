@@ -19,13 +19,13 @@ namespace NotGrocy.Models
         public long ProductId { get; set; }
         [Required]
         [Column("amount", TypeName = "DECIMAL(15, 2)")]
-        public byte[] Amount { get; set; }
+        public Double Amount { get; set; }
         [Column("best_before_date", TypeName = "DATE")]
-        public byte[] BestBeforeDate { get; set; }
+        public DateTime BestBeforeDate { get; set; }
         [Column("purchased_date", TypeName = "DATE")]
-        public byte[] PurchasedDate { get; set; }
+        public DateTime PurchasedDate { get; set; }
         [Column("used_date", TypeName = "DATE")]
-        public byte[] UsedDate { get; set; }
+        public DateTime UsedDate { get; set; }
         [Column("spoiled")]
         public long Spoiled { get; set; }
         [Required]
@@ -35,15 +35,15 @@ namespace NotGrocy.Models
         [Column("transaction_type")]
         public string TransactionType { get; set; }
         [Column("price", TypeName = "DECIMAL(15, 2)")]
-        public byte[] Price { get; set; }
+        public Double Price { get; set; }
         [Column("undone", TypeName = "TINYINT")]
         public long Undone { get; set; }
         [Column("undone_timestamp", TypeName = "DATETIME")]
-        public byte[] UndoneTimestamp { get; set; }
+        public DateTime UndoneTimestamp { get; set; }
         [Column("opened_date", TypeName = "DATETIME")]
-        public byte[] OpenedDate { get; set; }
+        public DateTime OpenedDate { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("location_id")]
         public long? LocationId { get; set; }
         [Column("recipe_id")]

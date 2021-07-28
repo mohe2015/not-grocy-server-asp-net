@@ -21,7 +21,7 @@ namespace NotGrocy.Models
         [Column("includes_recipe_id")]
         public long IncludesRecipeId { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("servings")]
         public long? Servings { get; set; }
     }

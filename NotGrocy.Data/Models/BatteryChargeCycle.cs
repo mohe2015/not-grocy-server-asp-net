@@ -19,12 +19,12 @@ namespace NotGrocy.Models
         [Column("battery_id")]
         public string BatteryId { get; set; }
         [Column("tracked_time", TypeName = "DATETIME")]
-        public byte[] TrackedTime { get; set; }
+        public DateTime TrackedTime { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("undone", TypeName = "TINYINT")]
         public long Undone { get; set; }
         [Column("undone_timestamp", TypeName = "DATETIME")]
-        public byte[] UndoneTimestamp { get; set; }
+        public DateTime UndoneTimestamp { get; set; }
     }
 }

@@ -24,6 +24,6 @@ namespace NotGrocy.Models
         [Column("product_id", TypeName = "INT")]
         public long? ProductId { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
     }
 }

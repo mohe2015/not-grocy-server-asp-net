@@ -18,14 +18,14 @@ namespace NotGrocy.Models
         [Column("chore_id")]
         public long ChoreId { get; set; }
         [Column("tracked_time", TypeName = "DATETIME")]
-        public byte[] TrackedTime { get; set; }
+        public DateTime TrackedTime { get; set; }
         [Column("done_by_user_id")]
         public long? DoneByUserId { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("undone", TypeName = "TINYINT")]
         public long Undone { get; set; }
         [Column("undone_timestamp", TypeName = "DATETIME")]
-        public byte[] UndoneTimestamp { get; set; }
+        public DateTime UndoneTimestamp { get; set; }
     }
 }

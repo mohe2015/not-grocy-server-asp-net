@@ -31,7 +31,7 @@ namespace NotGrocy.Models
         [Column("show_as_column_in_tables", TypeName = "TINYINT")]
         public long ShowAsColumnInTables { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("config")]
         public string Config { get; set; }
         [Column("sort_number")]

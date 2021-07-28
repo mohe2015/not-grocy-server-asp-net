@@ -18,6 +18,6 @@ namespace NotGrocy.Models
         [Column("userentity_id")]
         public long UserentityId { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
     }
 }

@@ -24,8 +24,8 @@ namespace NotGrocy.Models
         [Column("value")]
         public string Value { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("row_updated_timestamp", TypeName = "DATETIME")]
-        public byte[] RowUpdatedTimestamp { get; set; }
+        public DateTime RowUpdatedTimestamp { get; set; }
     }
 }

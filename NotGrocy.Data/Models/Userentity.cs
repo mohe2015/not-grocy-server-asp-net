@@ -29,6 +29,6 @@ namespace NotGrocy.Models
         [Column("icon_css_class")]
         public string IconCssClass { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
     }
 }

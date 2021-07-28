@@ -22,7 +22,7 @@ namespace NotGrocy.Models
         [Column("description")]
         public string Description { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("name_plural")]
         public string NamePlural { get; set; }
         [Column("plural_forms")]

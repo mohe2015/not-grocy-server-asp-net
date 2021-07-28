@@ -28,9 +28,9 @@ namespace NotGrocy.Models
         [Column("shopping_location_id")]
         public long? ShoppingLocationId { get; set; }
         [Column("last_price", TypeName = "DECIMAL(15, 2)")]
-        public byte[] LastPrice { get; set; }
+        public double LastPrice { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("note")]
         public string Note { get; set; }
     }

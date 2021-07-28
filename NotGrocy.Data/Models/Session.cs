@@ -22,10 +22,10 @@ namespace NotGrocy.Models
         [Column("user_id")]
         public long UserId { get; set; }
         [Column("expires", TypeName = "DATETIME")]
-        public byte[] Expires { get; set; }
+        public DateTime Expires { get; set; }
         [Column("last_used", TypeName = "DATETIME")]
-        public byte[] LastUsed { get; set; }
+        public DateTime LastUsed { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
     }
 }

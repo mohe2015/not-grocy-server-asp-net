@@ -28,7 +28,7 @@ namespace NotGrocy.Models
         [Column("period_days")]
         public long? PeriodDays { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("period_config")]
         public string PeriodConfig { get; set; }
         [Column("track_date_only", TypeName = "TINYINT")]

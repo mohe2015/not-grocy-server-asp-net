@@ -32,7 +32,7 @@ namespace NotGrocy.Models
         [Column("not_check_stock_fulfillment", TypeName = "TINYINT")]
         public long NotCheckStockFulfillment { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("variable_amount")]
         public string VariableAmount { get; set; }
         [Column("price_factor")]

@@ -21,16 +21,16 @@ namespace NotGrocy.Models
         [Column("description")]
         public string Description { get; set; }
         [Column("due_date", TypeName = "DATETIME")]
-        public byte[] DueDate { get; set; }
+        public DateTime DueDate { get; set; }
         [Column("done", TypeName = "TINYINT")]
         public long Done { get; set; }
         [Column("done_timestamp", TypeName = "DATETIME")]
-        public byte[] DoneTimestamp { get; set; }
+        public DateTime DoneTimestamp { get; set; }
         [Column("category_id")]
         public long? CategoryId { get; set; }
         [Column("assigned_to_user_id")]
         public long? AssignedToUserId { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public DateTime RowCreatedTimestamp { get; set; }
     }
 }
