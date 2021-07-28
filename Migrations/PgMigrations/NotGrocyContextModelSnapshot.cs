@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NotGrocy;
 
-namespace not_grocy_server_asp_net.Migrations
+namespace not_grocy_server_asp_net.Migrations.PgMigrations
 {
     [DbContext(typeof(NotGrocyContext))]
     partial class NotGrocyContextModelSnapshot : ModelSnapshot

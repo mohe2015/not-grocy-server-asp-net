@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NotGrocy;
 
-namespace not_grocy_server_asp_net.Migrations
+namespace not_grocy_server_asp_net.Migrations.PgMigrations
 {
     [DbContext(typeof(NotGrocyContext))]
-    [Migration("20210727164709_InitialCreate")]
+    [Migration("20210728175353_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
