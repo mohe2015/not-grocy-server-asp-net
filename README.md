@@ -17,7 +17,6 @@ dotnet user-secrets set "Movies:ServiceApiKey" "12345"
 
 https://github.com/nektos/act
 
-
 https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/providers?tabs=dotnet-core-cli
 
 ### Scaffold a controller
@@ -37,7 +36,20 @@ dotnet ef dbcontext scaffold "Data Source=hello.db" Microsoft.EntityFrameworkCor
 ### Migrations
 
 ```bash
-dotnet ef migrations add InitialCreate --configuration Pg --output-dir Migrations/PgMigrations
-dotnet ef migrations add InitialCreate --configuration Sqlite --output-dir Migrations/SqliteMigrations
-dotnet ef migrations add InitialCreate --configuration Mysql --output-dir Migrations/MysqlMigrations
+dotnet ef migrations add MyMigration --project ../SqliteMigrations -- --provider Sqlite
+dotnet ef migrations add MyMigration --project ../PostgresqlMigrations -- --provider Postgresql
+dotnet ef migrations add MyMigration --project ../MysqlMigrations -- --provider Mysql
+```
+
+### Adding database support for another database
+
+https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/providers?tabs=dotnet-core-cli
+
+```
+dotnet new classlib --name SqliteMigrations
+cd SqliteMigrations
+dotnet add reference ..
+cd ..
+dotnet ef migrations add MyMigration --provider Sqlite
+
 ```

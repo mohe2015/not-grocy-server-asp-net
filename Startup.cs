@@ -30,23 +30,27 @@ namespace not_grocy_server_asp_net
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var databaseType = Configuration["DatabaseType"];
-            var connectionString = Configuration["ConnectionString"];
+            // https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/providers?tabs=dotnet-core-cli
+            // Set the active provider via configuration
+            var provider = Configuration.GetValue("Provider", "Postgresql");
 
-            switch (databaseType) {
-                case "sqlite3":
-                    services.AddDbContext<NotGrocyContext>(options => options.UseSqlite(connectionString));
-                    break;
-                case "postgres":
-                    services.AddDbContext<NotGrocyContext>(options => options.UseNpgsql(connectionString));
-                    break;
-                case "mysql":
-                    services.AddDbContext<NotGrocyContext>(options => options.UseMySql(connectionString, Microsoft.EntityFrameworkCore.ServerVersion.Parse(connectionString)));
-                    break;
-                default:
-                    throw new Exception("unknown database type " + databaseType);
-            }
+            services.AddDbContext<NotGrocyContext>(
+                options => _ = provider switch
+                {
+                    "Sqlite" => options.UseSqlite(
+                        Configuration.GetConnectionString("SqliteConnection"),
+                        x => x.MigrationsAssembly("SqliteMigrations")),
+                    "Postgresql" => options.UseNpgsql(
+                        Configuration.GetConnectionString("PostgresqlConnection"),
+                        x => x.MigrationsAssembly("PostgresqlMigrations")),
+                    "Mysql" => options.UseMySql(
+                        Configuration.GetConnectionString("MysqlConnection"),
+                        Microsoft.EntityFrameworkCore.ServerVersion.Parse(Configuration.GetConnectionString("MysqlConnection")),
+                        x => x.MigrationsAssembly("MysqlMigrations")),
 
+                    _ => throw new Exception($"Unsupported provider: {provider}")
+                });
+            
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
