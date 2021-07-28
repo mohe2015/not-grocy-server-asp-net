@@ -38,13 +38,13 @@ namespace NotGrocy.Models
         public Double Price { get; set; }
         [Column("undone", TypeName = "TINYINT")]
         public long Undone { get; set; }
-        [Column("undone_timestamp", TypeName = "DATETIME")]
+        [Column("undone_timestamp")]
         public DateTime UndoneTimestamp { get; set; }
-        [Column("opened_date", TypeName = "DATETIME")]
+        [Column("opened_date")]
         public DateTime OpenedDate { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
+        [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("location_id")]
         public long? LocationId { get; set; }

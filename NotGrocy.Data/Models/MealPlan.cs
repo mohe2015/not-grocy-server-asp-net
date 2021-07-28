@@ -34,7 +34,7 @@ namespace NotGrocy.Models
         public long? ProductQuId { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
+        [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
     }
 }

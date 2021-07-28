@@ -33,7 +33,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("api_key");
 
                     b.Property<DateTime>("Expires")
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("expires");
 
                     b.Property<string>("KeyType")
@@ -44,12 +44,12 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasDefaultValueSql("'default'");
 
                     b.Property<DateTime>("LastUsed")
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("last_used");
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<long>("UserId")
@@ -96,7 +96,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("UsedIn")
@@ -131,11 +131,11 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<DateTime>("TrackedTime")
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("tracked_time");
 
                     b.Property<long>("Undone")
@@ -143,7 +143,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("undone");
 
                     b.Property<DateTime>("UndoneTimestamp")
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("undone_timestamp");
 
                     b.HasKey("Id");
@@ -228,7 +228,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("TrackDateOnly")
@@ -268,11 +268,11 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<DateTime>("TrackedTime")
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("tracked_time");
 
                     b.Property<long>("Undone")
@@ -280,7 +280,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("undone");
 
                     b.Property<DateTime>("UndoneTimestamp")
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("undone_timestamp");
 
                     b.HasKey("Id");
@@ -314,7 +314,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
@@ -351,7 +351,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
@@ -407,7 +407,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("Type")
@@ -594,7 +594,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("ShoppingLocationId")
@@ -631,7 +631,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
@@ -672,7 +672,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
@@ -708,7 +708,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<int>("ToQuId")
@@ -766,7 +766,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("Type")
@@ -803,7 +803,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("Servings")
@@ -871,7 +871,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("VariableAmount")
@@ -895,16 +895,16 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<DateTime>("Expires")
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("expires");
 
                     b.Property<DateTime>("LastUsed")
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("last_used");
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("SessionKey")
@@ -961,7 +961,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<int?>("ShoppingListId")
@@ -997,7 +997,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
@@ -1030,7 +1030,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
@@ -1069,7 +1069,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("open");
 
                     b.Property<DateTime>("OpenedDate")
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("opened_date");
 
                     b.Property<decimal>("Price")
@@ -1088,7 +1088,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("ShoppingLocationId")
@@ -1135,7 +1135,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("location_id");
 
                     b.Property<DateTime>("OpenedDate")
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("opened_date");
 
                     b.Property<decimal>("Price")
@@ -1156,7 +1156,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("ShoppingLocationId")
@@ -1190,7 +1190,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("undone");
 
                     b.Property<DateTime>("UndoneTimestamp")
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("undone_timestamp");
 
                     b.Property<DateTime>("UsedDate")
@@ -1236,11 +1236,11 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("done");
 
                     b.Property<DateTime>("DoneTimestamp")
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("done_timestamp");
 
                     b.Property<DateTime>("DueDate")
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("due_date");
 
                     b.Property<string>("Name")
@@ -1250,7 +1250,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
@@ -1280,7 +1280,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
@@ -1321,7 +1321,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("Username")
@@ -1382,12 +1382,12 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<DateTime>("RowUpdatedTimestamp")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_updated_timestamp")
                         .HasDefaultValueSql("datetime('now', 'localtime')");
 
@@ -1438,7 +1438,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<long>("ShowInSidebarMenu")
@@ -1487,7 +1487,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<long>("ShowAsColumnInTables")
@@ -1532,7 +1532,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("Value")
@@ -1561,7 +1561,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<long>("UserentityId")

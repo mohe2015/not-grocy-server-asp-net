@@ -33,7 +33,7 @@ namespace NotGrocy.Models
         public long NotCheckStockFulfillment { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
+        [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("variable_amount")]
         public string VariableAmount { get; set; }

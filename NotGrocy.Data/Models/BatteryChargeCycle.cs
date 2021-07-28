@@ -18,15 +18,15 @@ namespace NotGrocy.Models
         [Required]
         [Column("battery_id")]
         public string BatteryId { get; set; }
-        [Column("tracked_time", TypeName = "DATETIME")]
+        [Column("tracked_time")]
         public DateTime TrackedTime { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
+        [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("undone", TypeName = "TINYINT")]
         public long Undone { get; set; }
-        [Column("undone_timestamp", TypeName = "DATETIME")]
+        [Column("undone_timestamp")]
         public DateTime UndoneTimestamp { get; set; }
     }
 }

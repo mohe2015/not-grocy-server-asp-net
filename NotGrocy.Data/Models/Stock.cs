@@ -32,11 +32,11 @@ namespace NotGrocy.Models
         public double Price { get; set; }
         [Column("open", TypeName = "TINYINT")]
         public long Open { get; set; }
-        [Column("opened_date", TypeName = "DATETIME")]
+        [Column("opened_date")]
         public DateTime OpenedDate { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
+        [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("location_id")]
         public long? LocationId { get; set; }

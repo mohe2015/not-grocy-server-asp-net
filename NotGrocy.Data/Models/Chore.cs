@@ -29,7 +29,7 @@ namespace NotGrocy.Models
         public long? PeriodDays { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
+        [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("period_config")]
         public string PeriodConfig { get; set; }

@@ -24,7 +24,7 @@ namespace NotGrocy.Models
         public double Amount { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
+        [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("shopping_list_id", TypeName = "INT")]
         public long? ShoppingListId { get; set; }

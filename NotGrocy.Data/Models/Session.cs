@@ -21,13 +21,13 @@ namespace NotGrocy.Models
         public string SessionKey { get; set; }
         [Column("user_id")]
         public long UserId { get; set; }
-        [Column("expires", TypeName = "DATETIME")]
+        [Column("expires")]
         public DateTime Expires { get; set; }
-        [Column("last_used", TypeName = "DATETIME")]
+        [Column("last_used")]
         public DateTime LastUsed { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
+        [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
     }
 }

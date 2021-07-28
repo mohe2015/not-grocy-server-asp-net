@@ -28,7 +28,7 @@ namespace NotGrocy.Models
         public long ChargeIntervalDays { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
+        [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("active", TypeName = "TINYINT")]
         public long Active { get; set; }

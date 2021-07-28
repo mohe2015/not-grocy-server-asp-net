@@ -20,11 +20,11 @@ namespace NotGrocy.Models
         public string Name { get; set; }
         [Column("description")]
         public string Description { get; set; }
-        [Column("due_date", TypeName = "DATETIME")]
+        [Column("due_date")]
         public DateTime DueDate { get; set; }
         [Column("done", TypeName = "TINYINT")]
         public long Done { get; set; }
-        [Column("done_timestamp", TypeName = "DATETIME")]
+        [Column("done_timestamp")]
         public DateTime DoneTimestamp { get; set; }
         [Column("category_id")]
         public long? CategoryId { get; set; }
@@ -32,7 +32,7 @@ namespace NotGrocy.Models
         public long? AssignedToUserId { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
+        [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace NotGrocy.Models
         public string Password { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
+        [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("picture_file_name")]
         public string PictureFileName { get; set; }

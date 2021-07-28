@@ -17,17 +17,17 @@ namespace NotGrocy.Models
         public long Id { get; set; }
         [Column("chore_id")]
         public long ChoreId { get; set; }
-        [Column("tracked_time", TypeName = "DATETIME")]
+        [Column("tracked_time")]
         public DateTime TrackedTime { get; set; }
         [Column("done_by_user_id")]
         public long? DoneByUserId { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
+        [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("undone", TypeName = "TINYINT")]
         public long Undone { get; set; }
-        [Column("undone_timestamp", TypeName = "DATETIME")]
+        [Column("undone_timestamp")]
         public DateTime UndoneTimestamp { get; set; }
     }
 }

@@ -32,7 +32,7 @@ namespace NotGrocy.Models
         public long ShowAsColumnInTables { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
+        [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("config")]
         public string Config { get; set; }

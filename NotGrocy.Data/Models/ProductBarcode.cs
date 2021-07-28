@@ -31,7 +31,7 @@ namespace NotGrocy.Models
         public double LastPrice { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
+        [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("note")]
         public string Note { get; set; }
