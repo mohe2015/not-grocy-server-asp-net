@@ -19,6 +19,7 @@
               pkgs.mono
               pkgs.vscode
               pkgs.msbuild
+              pkgs.docker-compose
             ];
           };
         }
