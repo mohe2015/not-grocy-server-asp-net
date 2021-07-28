@@ -1,11 +1,13 @@
 # not-grocy-server-asp-net
 
 ```bash
-export DOTNET_ROOT=$(dirname $(realpath $(which dotnet)))
+export DOTNET_ROOT=$(dirname $(realpath $(which dotnet))) # /nix/store/iilqnmp2wq8xlk0d7bsvqi688w181g6n-dotnet-core-combined
 export PATH="$PATH:$HOME/.dotnet/tools"
 
-dotnet tool install --global dotnet-ef
-dotnet tool install --global dotnet-aspnet-codegenerator
+dotnet tool install dotnet-ef
+dotnet tool install dotnet-aspnet-codegenerator
+
+# run with dotnet dotnet-aspnet-codegenerator
 
 dotnet user-secrets init
 dotnet user-secrets set "Movies:ServiceApiKey" "12345"
