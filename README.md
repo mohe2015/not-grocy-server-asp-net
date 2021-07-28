@@ -36,7 +36,7 @@ dotnet ef dbcontext scaffold "Data Source=hello.db" Microsoft.EntityFrameworkCor
 ### Migrations
 
 ```bash
-dotnet ef migrations add MyMigration --project ../SqliteMigrations -- --provider Sqlite
+dotnet ef migrations add MyMigration --project SqliteMigrations -- --provider Sqlite
 dotnet ef migrations add MyMigration --project ../PostgresqlMigrations -- --provider Postgresql
 dotnet ef migrations add MyMigration --project ../MysqlMigrations -- --provider Mysql
 ```
@@ -50,6 +50,23 @@ dotnet new classlib --name SqliteMigrations
 cd SqliteMigrations
 dotnet add reference ..
 cd ..
-dotnet ef migrations add MyMigration --provider Sqlite
+# comment x => x.MigrationsAssembly("SqliteMigrations") in Startup.cs
+dotnet ef migrations add MyMigration -- --provider Sqlite
+mv Migrations/* SqliteMigrations/
+# uncomment
+# in SqliteMigrations
+```
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\not-grocy-server-asp-net.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <BaseOutputPath>../bin</BaseOutputPath>
+  </PropertyGroup>
+
+</Project>
 ```
