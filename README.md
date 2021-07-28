@@ -6,6 +6,9 @@ export PATH="$PATH:$HOME/.dotnet/tools"
 
 dotnet tool install --global dotnet-ef
 dotnet tool install --global dotnet-aspnet-codegenerator
+
+dotnet user-secrets init
+dotnet user-secrets set "Movies:ServiceApiKey" "12345"
 ```
 
 ## Development

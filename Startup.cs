@@ -30,10 +30,22 @@ namespace not_grocy_server_asp_net
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = new SqliteConnection("Data Source=hello.db");
-            connection.Open();
+            var databaseType = Configuration["DatabaseType"];
+            var connectionString = Configuration["ConnectionString"];
 
-            services.AddDbContext<NotGrocyContext>();
+            switch (databaseType) {
+                case "sqlite3":
+                    services.AddDbContext<NotGrocyContext>(options => options.UseSqlite(connectionString));
+                    break;
+                case "postgres":
+                    services.AddDbContext<NotGrocyContext>(options => options.UseNpgsql(connectionString));
+                    break;
+                case "mysql":
+                    services.AddDbContext<NotGrocyContext>(options => options.UseMySql(connectionString, Microsoft.EntityFrameworkCore.ServerVersion.Parse(connectionString)));
+                    break;
+                default:
+                    throw new Exception("unknown database type " + databaseType);
+            }
 
             services.AddControllers();
 
