@@ -22,9 +22,9 @@ namespace NotGrocy.Models
 
         [Required]
         [Column("description")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
-        [Column("product_group_id", TypeName = "INTEGER")]
+        [Column("product_group_id")]
         public long? ProductGroupId { get; set; }
 
         [Column("active")]
@@ -36,10 +36,10 @@ namespace NotGrocy.Models
         [Column("shopping_location_id")]
         public long? ShoppingLocationId { get; set; }
 
-        [Column("qu_id_purchase", TypeName = "INT")]
+        [Column("qu_id_purchase")]
         public long QuIdPurchase { get; set; }
 
-        [Column("qu_id_stock", TypeName = "INT")]
+        [Column("qu_id_stock")]
         public long QuIdStock { get; set; }
 
         [Column("qu_factor_purchase_to_stock")]
@@ -76,7 +76,7 @@ namespace NotGrocy.Models
         public long ParentProductId { get; set; }
 
         [Column("calories")]
-        public long Calories { get; set; }
+        public long? Calories { get; set; }
 
         [Column("cumulate_min_stock_amount_of_sub_products")]
         public bool? CumulateMinStockAmountOfSubProducts;
@@ -85,13 +85,13 @@ namespace NotGrocy.Models
         public long DueType { get; set; }
 
         [Column("quick_consume_amount")]
-        public long QuickConsumeAmount { get; set; }
+        public double QuickConsumeAmount { get; set; }
 
         [Column("hide_on_stock_overview")]
-        public bool? HideOnStockOverview;
+        public bool HideOnStockOverview;
 
         [Column("row_created_timestamp")]
-        public DateTime RowCreatedTimestamp { get; set; }
+        public DateTime? RowCreatedTimestamp { get; set; }
 
         [Column("default_print_stock_label")]
         public long DefaultPrintStockLabel { get; set; }
