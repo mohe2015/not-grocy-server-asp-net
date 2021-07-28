@@ -36,7 +36,7 @@ dotnet ef dbcontext scaffold "Data Source=hello.db" Microsoft.EntityFrameworkCor
 ### Migrations
 
 ```bash
-dotnet ef migrations add MyMigration --project SqliteMigrations -- --provider Sqlite
+dotnet ef migrations add MyMigration --project ../SqliteMigrations -- --provider Sqlite
 dotnet ef migrations add MyMigration --project ../PostgresqlMigrations -- --provider Postgresql
 dotnet ef migrations add MyMigration --project ../MysqlMigrations -- --provider Mysql
 ```
