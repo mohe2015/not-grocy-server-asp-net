@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using NotGrocy.Models;
 using NotGrocy;
 
-namespace not_grocy_server_asp_net.Controllers
+namespace NotGrocy.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

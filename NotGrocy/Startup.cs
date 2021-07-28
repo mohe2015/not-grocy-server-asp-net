@@ -16,7 +16,7 @@ using NotGrocy.Models;
 using NotGrocy;
 using Microsoft.Data.Sqlite;
 
-namespace not_grocy_server_asp_net
+namespace NotGrocy
 {
     public class Startup
     {
@@ -55,7 +55,7 @@ namespace not_grocy_server_asp_net
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "not_grocy_server_asp_net", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "NotGrocy", Version = "v1" });
             });
         }
 
@@ -66,7 +66,7 @@ namespace not_grocy_server_asp_net
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "not_grocy_server_asp_net v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NotGrocy v1"));
             }
 
             app.UseHttpsRedirection();

@@ -11,7 +11,7 @@ using NotGrocy.Models;
 using NotGrocy;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace not_grocy_server_asp_net
+namespace NotGrocy
 {
     public class Program
     {

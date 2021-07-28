@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>not_grocy_server_asp_net</RootNamespace>
+    <RootNamespace>NotGrocy</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

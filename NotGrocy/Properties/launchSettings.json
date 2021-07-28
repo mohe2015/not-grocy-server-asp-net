@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "not_grocy_server_asp_net": {
+    "NotGrocy": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

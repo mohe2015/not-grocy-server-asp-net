@@ -13,9 +13,19 @@ dotnet user-secrets set "Movies:ServiceApiKey" "12345"
 
 ## Development
 
-### Testing
+### Run migrations
 
-https://github.com/nektos/act
+```
+dotnet ef database update
+```
+
+### Running
+
+```
+dotnet watch run
+```
+
+### Testing
 
 https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/providers?tabs=dotnet-core-cli
 
@@ -54,19 +64,4 @@ cd ..
 dotnet ef migrations add MyMigration -- --provider Sqlite
 mv Migrations/* SqliteMigrations/
 # uncomment
-# in SqliteMigrations
-```
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <ItemGroup>
-    <ProjectReference Include="..\not-grocy-server-asp-net.csproj" />
-  </ItemGroup>
-
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-+   <BaseOutputPath>../bin</BaseOutputPath>
-  </PropertyGroup>
-
-</Project>
 ```
