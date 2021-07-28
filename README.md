@@ -51,6 +51,8 @@ dotnet ef dbcontext scaffold "Data Source=not-grocy.db" Microsoft.EntityFramewor
 dotnet ef migrations add MyMigration --project ../NotGrocy.SqliteMigrations -- --provider Sqlite
 dotnet ef migrations add MyMigration --project ../PostgresqlMigrations -- --provider Postgresql
 dotnet ef migrations add MyMigration --project ../MysqlMigrations -- --provider Mysql
+
+dotnet ef migrations remove --project ../NotGrocy.SqliteMigrations -- --provider Sqlite
 ```
 
 ### Adding database support for another database

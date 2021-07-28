@@ -27,6 +27,7 @@ namespace NotGrocy
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<MealPlan> MealPlans { get; set; }
         public virtual DbSet<PermissionHierarchy> PermissionHierarchies { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductBarcode> ProductBarcodes { get; set; }
         public virtual DbSet<ProductGroup> ProductGroups { get; set; }
         public virtual DbSet<QuantityUnit> QuantityUnits { get; set; }
