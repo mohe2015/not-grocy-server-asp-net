@@ -28,6 +28,8 @@ namespace NotGrocy.Models
         public long ShowInSidebarMenu { get; set; }
         [Column("icon_css_class")]
         public string IconCssClass { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public DateTime RowCreatedTimestamp { get; set; }
     }

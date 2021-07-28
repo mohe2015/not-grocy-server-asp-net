@@ -30,6 +30,8 @@ namespace NotGrocy.Models
         public long? CategoryId { get; set; }
         [Column("assigned_to_user_id")]
         public long? AssignedToUserId { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public DateTime RowCreatedTimestamp { get; set; }
     }

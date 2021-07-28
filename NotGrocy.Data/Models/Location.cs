@@ -22,6 +22,8 @@ namespace NotGrocy.Models
         [Column("description")]
         public string Description { get; set; }
         [Column("row_created_timestamp", TypeName = "DATETIME")]
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("is_freezer", TypeName = "TINYINT")]
         public long IsFreezer { get; set; }

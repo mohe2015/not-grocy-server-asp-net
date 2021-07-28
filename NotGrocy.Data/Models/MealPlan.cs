@@ -32,6 +32,8 @@ namespace NotGrocy.Models
         public double? ProductAmount { get; set; }
         [Column("product_qu_id")]
         public long? ProductQuId { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public DateTime RowCreatedTimestamp { get; set; }
     }

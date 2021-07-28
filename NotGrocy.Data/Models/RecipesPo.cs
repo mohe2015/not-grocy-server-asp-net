@@ -31,6 +31,8 @@ namespace NotGrocy.Models
         public string IngredientGroup { get; set; }
         [Column("not_check_stock_fulfillment", TypeName = "TINYINT")]
         public long NotCheckStockFulfillment { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("variable_amount")]

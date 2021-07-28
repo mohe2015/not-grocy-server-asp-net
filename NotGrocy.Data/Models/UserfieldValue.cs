@@ -23,6 +23,8 @@ namespace NotGrocy.Models
         [Required]
         [Column("value")]
         public string Value { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public DateTime RowCreatedTimestamp { get; set; }
     }

@@ -29,6 +29,8 @@ namespace NotGrocy.Models
         public long? ShoppingLocationId { get; set; }
         [Column("last_price", TypeName = "DECIMAL(15, 2)")]
         public double LastPrice { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("note")]

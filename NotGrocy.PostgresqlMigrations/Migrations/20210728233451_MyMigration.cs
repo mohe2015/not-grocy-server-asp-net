@@ -18,7 +18,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     user_id = table.Column<long>(type: "bigint", nullable: false),
                     expires = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     last_used = table.Column<DateTime>(type: "DATETIME", nullable: false),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     key_type = table.Column<string>(type: "text", nullable: false, defaultValueSql: "'default'")
                 },
                 constraints: table =>
@@ -36,7 +36,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     description = table.Column<string>(type: "text", nullable: true),
                     used_in = table.Column<string>(type: "text", nullable: true),
                     charge_interval_days = table.Column<long>(type: "bigint", nullable: false),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     active = table.Column<long>(type: "TINYINT", nullable: false, defaultValueSql: "1")
                 },
                 constraints: table =>
@@ -52,7 +52,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     battery_id = table.Column<string>(type: "text", nullable: false),
                     tracked_time = table.Column<DateTime>(type: "DATETIME", nullable: false),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     undone = table.Column<long>(type: "TINYINT", nullable: false),
                     undone_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false)
                 },
@@ -71,7 +71,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     description = table.Column<string>(type: "text", nullable: true),
                     period_type = table.Column<string>(type: "text", nullable: false),
                     period_days = table.Column<long>(type: "bigint", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     period_config = table.Column<string>(type: "text", nullable: true),
                     track_date_only = table.Column<long>(type: "TINYINT", nullable: true, defaultValueSql: "0"),
                     rollover = table.Column<long>(type: "TINYINT", nullable: true, defaultValueSql: "0"),
@@ -98,7 +98,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     chore_id = table.Column<long>(type: "bigint", nullable: false),
                     tracked_time = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     done_by_user_id = table.Column<long>(type: "bigint", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     undone = table.Column<long>(type: "TINYINT", nullable: false),
                     undone_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false)
                 },
@@ -116,7 +116,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     name = table.Column<string>(type: "text", nullable: false),
                     description = table.Column<string>(type: "text", nullable: true),
                     instruction_manual_file_name = table.Column<string>(type: "text", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -131,7 +131,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     name = table.Column<string>(type: "text", nullable: false),
                     description = table.Column<string>(type: "text", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     is_freezer = table.Column<long>(type: "TINYINT", nullable: false)
                 },
                 constraints: table =>
@@ -153,7 +153,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     product_id = table.Column<long>(type: "bigint", nullable: true),
                     product_amount = table.Column<double>(type: "double precision", nullable: true, defaultValueSql: "0"),
                     product_qu_id = table.Column<long>(type: "bigint", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -186,7 +186,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     amount = table.Column<double>(type: "double precision", nullable: true),
                     shopping_location_id = table.Column<long>(type: "bigint", nullable: true),
                     last_price = table.Column<decimal>(type: "numeric(15,2)", nullable: false),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     note = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
@@ -202,7 +202,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     name = table.Column<string>(type: "text", nullable: false),
                     description = table.Column<string>(type: "text", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -252,7 +252,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     to_qu_id = table.Column<int>(type: "INT", nullable: false),
                     factor = table.Column<double>(type: "double precision", nullable: false),
                     product_id = table.Column<int>(type: "INT", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -267,7 +267,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     name = table.Column<string>(type: "text", nullable: false),
                     description = table.Column<string>(type: "text", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     name_plural = table.Column<string>(type: "text", nullable: true),
                     plural_forms = table.Column<string>(type: "text", nullable: true)
                 },
@@ -284,7 +284,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     name = table.Column<string>(type: "text", nullable: false),
                     description = table.Column<string>(type: "text", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     picture_file_name = table.Column<string>(type: "text", nullable: true),
                     base_servings = table.Column<long>(type: "bigint", nullable: true, defaultValueSql: "1"),
                     desired_servings = table.Column<long>(type: "bigint", nullable: true, defaultValueSql: "1"),
@@ -305,7 +305,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     recipe_id = table.Column<long>(type: "bigint", nullable: false),
                     includes_recipe_id = table.Column<long>(type: "bigint", nullable: false),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     servings = table.Column<long>(type: "bigint", nullable: true, defaultValueSql: "1")
                 },
                 constraints: table =>
@@ -327,7 +327,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     only_check_single_unit_in_stock = table.Column<long>(type: "TINYINT", nullable: false),
                     ingredient_group = table.Column<string>(type: "text", nullable: true),
                     not_check_stock_fulfillment = table.Column<long>(type: "TINYINT", nullable: false),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     variable_amount = table.Column<string>(type: "text", nullable: true),
                     price_factor = table.Column<double>(type: "double precision", nullable: false, defaultValueSql: "1")
                 },
@@ -346,7 +346,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     user_id = table.Column<long>(type: "bigint", nullable: false),
                     expires = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     last_used = table.Column<DateTime>(type: "DATETIME", nullable: false),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -362,7 +362,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     product_id = table.Column<long>(type: "bigint", nullable: true),
                     note = table.Column<string>(type: "text", nullable: true),
                     amount = table.Column<decimal>(type: "numeric(15,2)", nullable: false, defaultValueSql: "0"),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     shopping_list_id = table.Column<int>(type: "INT", nullable: true, defaultValueSql: "1"),
                     done = table.Column<int>(type: "INT", nullable: true, defaultValueSql: "0"),
                     qu_id = table.Column<long>(type: "bigint", nullable: true)
@@ -380,7 +380,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     name = table.Column<string>(type: "text", nullable: false),
                     description = table.Column<string>(type: "text", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -395,7 +395,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     name = table.Column<string>(type: "text", nullable: false),
                     description = table.Column<string>(type: "text", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -416,7 +416,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     price = table.Column<decimal>(type: "numeric(15,2)", nullable: false),
                     open = table.Column<long>(type: "TINYINT", nullable: false),
                     opened_date = table.Column<DateTime>(type: "DATETIME", nullable: false),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     location_id = table.Column<long>(type: "bigint", nullable: true),
                     shopping_location_id = table.Column<long>(type: "bigint", nullable: true)
                 },
@@ -443,7 +443,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     undone = table.Column<long>(type: "TINYINT", nullable: false),
                     undone_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     opened_date = table.Column<DateTime>(type: "DATETIME", nullable: false),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     location_id = table.Column<long>(type: "bigint", nullable: true),
                     recipe_id = table.Column<long>(type: "bigint", nullable: true),
                     correlation_id = table.Column<string>(type: "text", nullable: true),
@@ -465,7 +465,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     name = table.Column<string>(type: "text", nullable: false),
                     description = table.Column<string>(type: "text", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -485,7 +485,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     done_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     category_id = table.Column<long>(type: "bigint", nullable: true),
                     assigned_to_user_id = table.Column<long>(type: "bigint", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -515,7 +515,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     user_id = table.Column<long>(type: "bigint", nullable: false),
                     key = table.Column<string>(type: "text", nullable: false),
                     value = table.Column<string>(type: "text", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     row_updated_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')")
                 },
                 constraints: table =>
@@ -534,7 +534,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     description = table.Column<string>(type: "text", nullable: true),
                     show_in_sidebar_menu = table.Column<long>(type: "TINYINT", nullable: false, defaultValueSql: "1"),
                     icon_css_class = table.Column<string>(type: "text", nullable: true),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -550,7 +550,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     field_id = table.Column<long>(type: "bigint", nullable: false),
                     object_id = table.Column<long>(type: "bigint", nullable: false),
                     value = table.Column<string>(type: "text", nullable: false),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -568,7 +568,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     caption = table.Column<string>(type: "text", nullable: false),
                     type = table.Column<string>(type: "text", nullable: false),
                     show_as_column_in_tables = table.Column<long>(type: "TINYINT", nullable: false),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     config = table.Column<string>(type: "text", nullable: true),
                     sort_number = table.Column<long>(type: "bigint", nullable: true)
                 },
@@ -584,7 +584,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     userentity_id = table.Column<long>(type: "bigint", nullable: false),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -601,7 +601,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     first_name = table.Column<string>(type: "text", nullable: true),
                     last_name = table.Column<string>(type: "text", nullable: true),
                     password = table.Column<string>(type: "text", nullable: false),
-                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     picture_file_name = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>

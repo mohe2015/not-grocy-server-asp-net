@@ -108,6 +108,7 @@ namespace NotGrocy.Models
         [Column("hide_on_stock_overview")]
         public bool HideOnStockOverview;
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp")]
         public DateTime? RowCreatedTimestamp { get; set; }
 

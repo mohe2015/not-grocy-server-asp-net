@@ -53,6 +53,8 @@ dotnet ef migrations add MyMigration --project ../NotGrocy.PostgresqlMigrations 
 dotnet ef migrations add MyMigration --project ../MysqlMigrations -- --provider Mysql
 
 dotnet ef migrations remove --project ../NotGrocy.SqliteMigrations -- --provider Sqlite
+dotnet ef migrations remove --project ../NotGrocy.PostgresqlMigrations -- --provider Postgresql
+
 ```
 
 ### Adding database support for another database

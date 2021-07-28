@@ -20,6 +20,8 @@ namespace NotGrocy.Models
         public string BatteryId { get; set; }
         [Column("tracked_time", TypeName = "DATETIME")]
         public DateTime TrackedTime { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("undone", TypeName = "TINYINT")]

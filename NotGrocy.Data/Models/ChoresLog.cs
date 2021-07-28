@@ -21,6 +21,8 @@ namespace NotGrocy.Models
         public DateTime TrackedTime { get; set; }
         [Column("done_by_user_id")]
         public long? DoneByUserId { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("undone", TypeName = "TINYINT")]

@@ -23,6 +23,8 @@ namespace NotGrocy.Models
         public double Factor { get; set; }
         [Column("product_id", TypeName = "INT")]
         public long? ProductId { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public DateTime RowCreatedTimestamp { get; set; }
     }

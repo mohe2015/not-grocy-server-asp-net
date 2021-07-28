@@ -30,6 +30,8 @@ namespace NotGrocy.Models
         public string Type { get; set; }
         [Column("show_as_column_in_tables", TypeName = "TINYINT")]
         public long ShowAsColumnInTables { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("config")]

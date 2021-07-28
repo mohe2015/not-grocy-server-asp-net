@@ -22,6 +22,8 @@ namespace NotGrocy.Models
         [Required]
         [Column("amount", TypeName = "DECIMAL(15, 2)")]
         public double Amount { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("shopping_list_id", TypeName = "INT")]

@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NotGrocy.PostgresqlMigrations.Migrations
 {
     [DbContext(typeof(NotGrocyContext))]
-    [Migration("20210728232155_MyMigration")]
+    [Migration("20210728233451_MyMigration")]
     partial class MyMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,8 +52,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long>("UserId")
                         .HasColumnType("bigint")
@@ -100,8 +99,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("UsedIn")
                         .HasColumnType("text")
@@ -136,8 +134,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<DateTime>("TrackedTime")
                         .HasColumnType("DATETIME")
@@ -234,8 +231,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("TrackDateOnly")
                         .ValueGeneratedOnAdd()
@@ -275,8 +271,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<DateTime>("TrackedTime")
                         .HasColumnType("DATETIME")
@@ -322,8 +317,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -360,8 +354,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -417,8 +410,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("Type")
                         .ValueGeneratedOnAdd()
@@ -546,6 +538,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("quick_consume_amount");
 
                     b.Property<DateTime?>("RowCreatedTimestamp")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
@@ -604,8 +597,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("ShoppingLocationId")
                         .HasColumnType("bigint")
@@ -642,8 +634,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -684,8 +675,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -721,8 +711,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<int>("ToQuId")
                         .HasColumnType("INT")
@@ -780,8 +769,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("Type")
                         .ValueGeneratedOnAdd()
@@ -818,8 +806,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("Servings")
                         .ValueGeneratedOnAdd()
@@ -887,8 +874,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("VariableAmount")
                         .HasColumnType("text")
@@ -921,8 +907,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("SessionKey")
                         .IsRequired()
@@ -979,8 +964,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<int?>("ShoppingListId")
                         .ValueGeneratedOnAdd()
@@ -1016,8 +1000,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -1050,8 +1033,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -1109,8 +1091,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("ShoppingLocationId")
                         .HasColumnType("bigint")
@@ -1178,8 +1159,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("ShoppingLocationId")
                         .HasColumnType("bigint")
@@ -1273,8 +1253,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -1304,8 +1283,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -1346,8 +1324,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("Username")
                         .IsRequired()
@@ -1408,8 +1385,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<DateTime>("RowUpdatedTimestamp")
                         .ValueGeneratedOnAdd()
@@ -1465,8 +1441,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long>("ShowInSidebarMenu")
                         .ValueGeneratedOnAdd()
@@ -1515,8 +1490,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long>("ShowAsColumnInTables")
                         .HasColumnType("TINYINT")
@@ -1561,8 +1535,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("Value")
                         .IsRequired()
@@ -1591,8 +1564,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long>("UserentityId")
                         .HasColumnType("bigint")

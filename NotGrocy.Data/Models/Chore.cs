@@ -27,6 +27,8 @@ namespace NotGrocy.Models
         public string PeriodType { get; set; }
         [Column("period_days")]
         public long? PeriodDays { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("period_config")]

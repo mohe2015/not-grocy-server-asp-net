@@ -25,6 +25,8 @@ namespace NotGrocy.Models
         public DateTime Expires { get; set; }
         [Column("last_used", TypeName = "DATETIME")]
         public DateTime LastUsed { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp", TypeName = "DATETIME")]
         public DateTime RowCreatedTimestamp { get; set; }
         [Required]
