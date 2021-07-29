@@ -23,7 +23,9 @@ namespace NotGrocy.Models
         public string Description { get; set; }
         [Column("instruction_manual_file_name")]
         public string InstructionManualFileName { get; set; }
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("row_created_timestamp")]
+        public DateTime RowCreatedTimestamp { get; set; }
     }
 }

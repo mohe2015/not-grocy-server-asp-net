@@ -20,8 +20,10 @@ namespace NotGrocy.Models
         public long RecipeId { get; set; }
         [Column("includes_recipe_id")]
         public long IncludesRecipeId { get; set; }
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("row_created_timestamp")]
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("servings")]
         public long? Servings { get; set; }
     }

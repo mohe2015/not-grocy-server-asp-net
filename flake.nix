@@ -20,6 +20,7 @@
               #pkgs.vscode
               pkgs.msbuild
               pkgs.docker-compose
+              pkgs.sqlitebrowser
             ];
           };
         }

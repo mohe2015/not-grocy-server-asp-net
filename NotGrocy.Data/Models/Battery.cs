@@ -26,9 +26,11 @@ namespace NotGrocy.Models
         public string UsedIn { get; set; }
         [Column("charge_interval_days")]
         public long ChargeIntervalDays { get; set; }
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
-        [Column("active", TypeName = "TINYINT")]
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("row_created_timestamp")]
+        public DateTime RowCreatedTimestamp { get; set; }
+        [Column("active")]
         public long Active { get; set; }
     }
 }

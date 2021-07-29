@@ -21,12 +21,14 @@ namespace NotGrocy.Models
         public string Note { get; set; }
         [Required]
         [Column("amount", TypeName = "DECIMAL(15, 2)")]
-        public byte[] Amount { get; set; }
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
-        [Column("shopping_list_id", TypeName = "INT")]
+        public double Amount { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("row_created_timestamp")]
+        public DateTime RowCreatedTimestamp { get; set; }
+        [Column("shopping_list_id")]
         public long? ShoppingListId { get; set; }
-        [Column("done", TypeName = "INT")]
+        [Column("done")]
         public long? Done { get; set; }
         [Column("qu_id")]
         public long? QuId { get; set; }

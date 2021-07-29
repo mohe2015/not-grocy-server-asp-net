@@ -23,9 +23,13 @@ namespace NotGrocy.Models
         public string Key { get; set; }
         [Column("value")]
         public string Value { get; set; }
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
-        [Column("row_updated_timestamp", TypeName = "DATETIME")]
-        public byte[] RowUpdatedTimestamp { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("row_created_timestamp")]
+        public DateTime RowCreatedTimestamp { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [Column("row_updated_timestamp")]
+        public DateTime RowUpdatedTimestamp { get; set; }
     }
 }

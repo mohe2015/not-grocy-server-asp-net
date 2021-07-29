@@ -2,55 +2,57 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NotGrocy;
 
-namespace NotGrocy.SqliteMigrations
+namespace NotGrocy.MysqlMigrations.Migrations
 {
     [DbContext(typeof(NotGrocyContext))]
-    partial class NotGrocyContextModelSnapshot : ModelSnapshot
+    [Migration("20210729205538_MyMigration")]
+    partial class MyMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.8");
 
             modelBuilder.Entity("NotGrocy.Models.ApiKey", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<string>("ApiKey1")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("api_key");
 
-                    b.Property<byte[]>("Expires")
-                        .HasColumnType("DATETIME")
+                    b.Property<DateTime>("Expires")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("expires");
 
                     b.Property<string>("KeyType")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("key_type")
                         .HasDefaultValueSql("'default'");
 
-                    b.Property<byte[]>("LastUsed")
-                        .HasColumnType("DATETIME")
+                    b.Property<DateTime>("LastUsed")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("last_used");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("user_id");
 
                     b.HasKey("Id");
@@ -68,36 +70,35 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<long>("Active")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("active")
                         .HasDefaultValueSql("1");
 
                     b.Property<long>("ChargeIntervalDays")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("charge_interval_days");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("UsedIn")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("used_in");
 
                     b.HasKey("Id");
@@ -117,30 +118,29 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<string>("BatteryId")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("battery_id");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
-                    b.Property<byte[]>("TrackedTime")
-                        .HasColumnType("DATETIME")
+                    b.Property<DateTime>("TrackedTime")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("tracked_time");
 
                     b.Property<long>("Undone")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("undone");
 
-                    b.Property<byte[]>("UndoneTimestamp")
-                        .HasColumnType("DATETIME")
+                    b.Property<DateTime>("UndoneTimestamp")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("undone_timestamp");
 
                     b.HasKey("Id");
@@ -155,82 +155,81 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<long>("Active")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("active")
                         .HasDefaultValueSql("1");
 
                     b.Property<string>("AssignmentConfig")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("assignment_config");
 
                     b.Property<string>("AssignmentType")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("assignment_type");
 
                     b.Property<long>("ConsumeProductOnExecution")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("consume_product_on_execution");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
                     b.Property<long?>("NextExecutionAssignedToUserId")
-                        .HasColumnType("INT")
+                        .HasColumnType("bigint")
                         .HasColumnName("next_execution_assigned_to_user_id");
 
                     b.Property<string>("PeriodConfig")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("period_config");
 
                     b.Property<long?>("PeriodDays")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("period_days");
 
                     b.Property<long>("PeriodInterval")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("period_interval")
                         .HasDefaultValueSql("1");
 
                     b.Property<string>("PeriodType")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("period_type");
 
                     b.Property<double?>("ProductAmount")
-                        .HasColumnType("REAL")
+                        .HasColumnType("double")
                         .HasColumnName("product_amount");
 
                     b.Property<long?>("ProductId")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("product_id");
 
                     b.Property<long?>("Rollover")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("rollover")
                         .HasDefaultValueSql("0");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("TrackDateOnly")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("track_date_only")
                         .HasDefaultValueSql("0");
 
@@ -251,33 +250,32 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<long>("ChoreId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("chore_id");
 
                     b.Property<long?>("DoneByUserId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("done_by_user_id");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
-                    b.Property<byte[]>("TrackedTime")
-                        .HasColumnType("DATETIME")
+                    b.Property<DateTime>("TrackedTime")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("tracked_time");
 
                     b.Property<long>("Undone")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("undone");
 
-                    b.Property<byte[]>("UndoneTimestamp")
-                        .HasColumnType("DATETIME")
+                    b.Property<DateTime>("UndoneTimestamp")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("undone_timestamp");
 
                     b.HasKey("Id");
@@ -292,27 +290,26 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<string>("InstructionManualFileName")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("instruction_manual_file_name");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -329,27 +326,26 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<long>("IsFreezer")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("is_freezer");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -366,51 +362,49 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
-                    b.Property<byte[]>("Day")
-                        .IsRequired()
+                    b.Property<DateTime>("Day")
                         .HasColumnType("DATE")
                         .HasColumnName("day");
 
                     b.Property<string>("Note")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("note");
 
                     b.Property<double?>("ProductAmount")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("REAL")
+                        .HasColumnType("double")
                         .HasColumnName("product_amount")
                         .HasDefaultValueSql("0");
 
                     b.Property<long?>("ProductId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("product_id");
 
                     b.Property<long?>("ProductQuId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("product_qu_id");
 
                     b.Property<long?>("RecipeId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("recipe_id");
 
                     b.Property<long?>("RecipeServings")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("recipe_servings")
                         .HasDefaultValueSql("1");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("Type")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("type")
                         .HasDefaultValueSql("'recipe'");
 
@@ -426,16 +420,16 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
                     b.Property<long?>("Parent")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("parent");
 
                     b.HasKey("Id");
@@ -453,92 +447,95 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint")
+                        .HasColumnName("id")
+                        .HasComment("This is a test");
 
                     b.Property<long?>("Calories")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("calories");
 
                     b.Property<long>("DefaultBestBeforeDays")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("default_best_before_days");
 
                     b.Property<long>("DefaultBestBeforeDaysAfterFreezing")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("default_best_before_days_after_freezing");
 
                     b.Property<long>("DefaultBestBeforeDaysAfterOpen")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("default_best_before_days_after_open");
 
                     b.Property<long>("DefaultBestBeforeDaysAfterThawing")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("default_best_before_days_after_thawing");
 
                     b.Property<long>("DefaultPrintStockLabel")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("default_print_stock_label");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<long>("DueType")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("due_type");
 
                     b.Property<long>("LocationId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("location_id");
 
                     b.Property<long>("MinStockAmount")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("min_stock_amount");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
                     b.Property<long>("ParentProductId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("parent_product_id");
 
                     b.Property<string>("PictureFileName")
-                        .HasColumnType("TEXT")
+                        .IsRequired()
+                        .HasColumnType("longtext")
                         .HasColumnName("picture_file_name");
 
                     b.Property<long?>("ProductGroupId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("product_group_id");
 
                     b.Property<double>("QuFactorPurchaseToStock")
-                        .HasColumnType("REAL")
+                        .HasColumnType("double")
                         .HasColumnName("qu_factor_purchase_to_stock");
 
                     b.Property<long>("QuIdPurchase")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("qu_id_purchase");
 
                     b.Property<long>("QuIdStock")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("qu_id_stock");
 
                     b.Property<double>("QuickConsumeAmount")
-                        .HasColumnType("REAL")
+                        .HasColumnType("double")
                         .HasColumnName("quick_consume_amount");
 
                     b.Property<DateTime?>("RowCreatedTimestamp")
-                        .HasColumnType("TEXT")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("ShoppingLocationId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("shopping_location_id");
 
                     b.Property<double>("TareWeight")
-                        .HasColumnType("REAL")
+                        .HasColumnType("double")
                         .HasColumnName("tare_weight");
 
                     b.HasKey("Id");
@@ -556,42 +553,41 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<double?>("Amount")
-                        .HasColumnType("REAL")
+                        .HasColumnType("double")
                         .HasColumnName("amount");
 
                     b.Property<string>("Barcode")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("barcode");
 
-                    b.Property<byte[]>("LastPrice")
-                        .HasColumnType("DECIMAL(15, 2)")
+                    b.Property<decimal>("LastPrice")
+                        .HasColumnType("DECIMAL(15,2)")
                         .HasColumnName("last_price");
 
                     b.Property<string>("Note")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("note");
 
                     b.Property<long>("ProductId")
-                        .HasColumnType("INT")
+                        .HasColumnType("bigint")
                         .HasColumnName("product_id");
 
                     b.Property<long?>("QuId")
-                        .HasColumnType("INT")
+                        .HasColumnType("bigint")
                         .HasColumnName("qu_id");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("ShoppingLocationId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("shopping_location_id");
 
                     b.HasKey("Id");
@@ -609,23 +605,22 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -642,31 +637,30 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
                     b.Property<string>("NamePlural")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("name_plural");
 
                     b.Property<string>("PluralForms")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("plural_forms");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -683,29 +677,28 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<double>("Factor")
-                        .HasColumnType("REAL")
+                        .HasColumnType("double")
                         .HasColumnName("factor");
 
                     b.Property<long>("FromQuId")
-                        .HasColumnType("INT")
+                        .HasColumnType("bigint")
                         .HasColumnName("from_qu_id");
 
                     b.Property<long?>("ProductId")
-                        .HasColumnType("INT")
+                        .HasColumnType("bigint")
                         .HasColumnName("product_id");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long>("ToQuId")
-                        .HasColumnType("INT")
+                        .HasColumnType("bigint")
                         .HasColumnName("to_qu_id");
 
                     b.HasKey("Id");
@@ -720,51 +713,50 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<long?>("BaseServings")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("base_servings")
                         .HasDefaultValueSql("1");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<long?>("DesiredServings")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("desired_servings")
                         .HasDefaultValueSql("1");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
                     b.Property<long>("NotCheckShoppinglist")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("not_check_shoppinglist");
 
                     b.Property<string>("PictureFileName")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("picture_file_name");
 
                     b.Property<long?>("ProductId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("product_id");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("Type")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("type")
                         .HasDefaultValueSql("'normal'");
 
@@ -782,26 +774,25 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<long>("IncludesRecipeId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("includes_recipe_id");
 
                     b.Property<long>("RecipeId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("recipe_id");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("Servings")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("servings")
                         .HasDefaultValueSql("1");
 
@@ -820,55 +811,54 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<double>("Amount")
-                        .HasColumnType("REAL")
+                        .HasColumnType("double")
                         .HasColumnName("amount");
 
                     b.Property<string>("IngredientGroup")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("ingredient_group");
 
                     b.Property<long>("NotCheckStockFulfillment")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("not_check_stock_fulfillment");
 
                     b.Property<string>("Note")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("note");
 
                     b.Property<long>("OnlyCheckSingleUnitInStock")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("only_check_single_unit_in_stock");
 
                     b.Property<double>("PriceFactor")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("REAL")
+                        .HasColumnType("double")
                         .HasColumnName("price_factor")
                         .HasDefaultValueSql("1");
 
                     b.Property<long>("ProductId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("product_id");
 
                     b.Property<long?>("QuId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("qu_id");
 
                     b.Property<long>("RecipeId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("recipe_id");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("VariableAmount")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("variable_amount");
 
                     b.HasKey("Id");
@@ -883,30 +873,29 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
-                    b.Property<byte[]>("Expires")
-                        .HasColumnType("DATETIME")
+                    b.Property<DateTime>("Expires")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("expires");
 
-                    b.Property<byte[]>("LastUsed")
-                        .HasColumnType("DATETIME")
+                    b.Property<DateTime>("LastUsed")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("last_used");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("SessionKey")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("session_key");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("user_id");
 
                     b.HasKey("Id");
@@ -924,43 +913,41 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
-                    b.Property<byte[]>("Amount")
-                        .IsRequired()
+                    b.Property<decimal>("Amount")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DECIMAL(15, 2)")
+                        .HasColumnType("DECIMAL(15,2)")
                         .HasColumnName("amount")
                         .HasDefaultValueSql("0");
 
                     b.Property<long?>("Done")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INT")
+                        .HasColumnType("bigint")
                         .HasColumnName("done")
                         .HasDefaultValueSql("0");
 
                     b.Property<string>("Note")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("note");
 
                     b.Property<long?>("ProductId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("product_id");
 
                     b.Property<long?>("QuId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("qu_id");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("ShoppingListId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INT")
+                        .HasColumnType("bigint")
                         .HasColumnName("shopping_list_id")
                         .HasDefaultValueSql("1");
 
@@ -976,23 +963,22 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -1009,23 +995,22 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -1042,57 +1027,54 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
-                    b.Property<byte[]>("Amount")
-                        .IsRequired()
-                        .HasColumnType("DECIMAL(15, 2)")
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("DECIMAL(15,2)")
                         .HasColumnName("amount");
 
-                    b.Property<byte[]>("BestBeforeDate")
+                    b.Property<DateTime>("BestBeforeDate")
                         .HasColumnType("DATE")
                         .HasColumnName("best_before_date");
 
                     b.Property<long?>("LocationId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("location_id");
 
                     b.Property<long>("Open")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("open");
 
-                    b.Property<byte[]>("OpenedDate")
-                        .HasColumnType("DATETIME")
+                    b.Property<DateTime>("OpenedDate")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("opened_date");
 
-                    b.Property<byte[]>("Price")
-                        .HasColumnType("DECIMAL(15, 2)")
+                    b.Property<decimal>("Price")
+                        .HasColumnType("DECIMAL(15,2)")
                         .HasColumnName("price");
 
                     b.Property<long>("ProductId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("product_id");
 
-                    b.Property<byte[]>("PurchasedDate")
+                    b.Property<DateTime>("PurchasedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATE")
-                        .HasColumnName("purchased_date")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("purchased_date");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("ShoppingLocationId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("shopping_location_id");
 
                     b.Property<string>("StockId")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("stock_id");
 
                     b.HasKey("Id");
@@ -1109,93 +1091,91 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
-                    b.Property<byte[]>("Amount")
-                        .IsRequired()
-                        .HasColumnType("DECIMAL(15, 2)")
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("DECIMAL(15,2)")
                         .HasColumnName("amount");
 
-                    b.Property<byte[]>("BestBeforeDate")
+                    b.Property<DateTime>("BestBeforeDate")
                         .HasColumnType("DATE")
                         .HasColumnName("best_before_date");
 
                     b.Property<string>("CorrelationId")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("correlation_id");
 
                     b.Property<long?>("LocationId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("location_id");
 
-                    b.Property<byte[]>("OpenedDate")
-                        .HasColumnType("DATETIME")
+                    b.Property<DateTime>("OpenedDate")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("opened_date");
 
-                    b.Property<byte[]>("Price")
-                        .HasColumnType("DECIMAL(15, 2)")
+                    b.Property<decimal>("Price")
+                        .HasColumnType("DECIMAL(15,2)")
                         .HasColumnName("price");
 
                     b.Property<long>("ProductId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("product_id");
 
-                    b.Property<byte[]>("PurchasedDate")
+                    b.Property<DateTime>("PurchasedDate")
                         .HasColumnType("DATE")
                         .HasColumnName("purchased_date");
 
                     b.Property<long?>("RecipeId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("recipe_id");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long?>("ShoppingLocationId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("shopping_location_id");
 
                     b.Property<long>("Spoiled")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("spoiled");
 
                     b.Property<string>("StockId")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("stock_id");
 
                     b.Property<long?>("StockRowId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("stock_row_id");
 
                     b.Property<string>("TransactionId")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("transaction_id");
 
                     b.Property<string>("TransactionType")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("transaction_type");
 
                     b.Property<long>("Undone")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("undone");
 
-                    b.Property<byte[]>("UndoneTimestamp")
-                        .HasColumnType("DATETIME")
+                    b.Property<DateTime>("UndoneTimestamp")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("undone_timestamp");
 
-                    b.Property<byte[]>("UsedDate")
+                    b.Property<DateTime>("UsedDate")
                         .HasColumnType("DATE")
                         .HasColumnName("used_date");
 
                     b.Property<long>("UserId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("user_id")
                         .HasDefaultValueSql("1");
 
@@ -1211,43 +1191,42 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<long?>("AssignedToUserId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("assigned_to_user_id");
 
                     b.Property<long?>("CategoryId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("category_id");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<long>("Done")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("done");
 
-                    b.Property<byte[]>("DoneTimestamp")
-                        .HasColumnType("DATETIME")
+                    b.Property<DateTime>("DoneTimestamp")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("done_timestamp");
 
-                    b.Property<byte[]>("DueDate")
-                        .HasColumnType("DATETIME")
+                    b.Property<DateTime>("DueDate")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("due_date");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("name");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -1261,23 +1240,22 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.HasKey("Id");
 
@@ -1294,35 +1272,34 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("first_name");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("last_name");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("password");
 
                     b.Property<string>("PictureFileName")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("picture_file_name");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("username");
 
                     b.HasKey("Id");
@@ -1340,15 +1317,15 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<long>("PermissionId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("permission_id");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("user_id");
 
                     b.HasKey("Id");
@@ -1366,32 +1343,30 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<string>("Key")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("key");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
-                    b.Property<byte[]>("RowUpdatedTimestamp")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_updated_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                    b.Property<DateTime>("RowUpdatedTimestamp")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_updated_timestamp");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("user_id");
 
                     b.Property<string>("Value")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("value");
 
                     b.HasKey("Id");
@@ -1409,36 +1384,35 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<string>("Caption")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("caption");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<string>("IconCssClass")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("icon_css_class");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long>("ShowInSidebarMenu")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("show_in_sidebar_menu")
                         .HasDefaultValueSql("1");
 
@@ -1457,45 +1431,44 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<string>("Caption")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("caption");
 
                     b.Property<string>("Config")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("config");
 
                     b.Property<string>("Entity")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("entity");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long>("ShowAsColumnInTables")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("show_as_column_in_tables");
 
                     b.Property<long?>("SortNumber")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("sort_number");
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("type");
 
                     b.HasKey("Id");
@@ -1513,26 +1486,25 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
                     b.Property<long>("FieldId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("field_id");
 
                     b.Property<long>("ObjectId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("object_id");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<string>("Value")
                         .IsRequired()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("longtext")
                         .HasColumnName("value");
 
                     b.HasKey("Id");
@@ -1550,17 +1522,16 @@ namespace NotGrocy.SqliteMigrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
-                    b.Property<byte[]>("RowCreatedTimestamp")
+                    b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("row_created_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("row_created_timestamp");
 
                     b.Property<long>("UserentityId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("bigint")
                         .HasColumnName("userentity_id");
 
                     b.HasKey("Id");

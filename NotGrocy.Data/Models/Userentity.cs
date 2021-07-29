@@ -24,11 +24,13 @@ namespace NotGrocy.Models
         public string Caption { get; set; }
         [Column("description")]
         public string Description { get; set; }
-        [Column("show_in_sidebar_menu", TypeName = "TINYINT")]
+        [Column("show_in_sidebar_menu")]
         public long ShowInSidebarMenu { get; set; }
         [Column("icon_css_class")]
         public string IconCssClass { get; set; }
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("row_created_timestamp")]
+        public DateTime RowCreatedTimestamp { get; set; }
     }
 }

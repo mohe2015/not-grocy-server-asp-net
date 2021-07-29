@@ -16,21 +16,23 @@ namespace NotGrocy.Models
         [Key]
         [Column("id")]
         public long Id { get; set; }
-        [Column("product_id", TypeName = "INT")]
+        [Column("product_id")]
         public long ProductId { get; set; }
         [Required]
         [Column("barcode")]
         public string Barcode { get; set; }
-        [Column("qu_id", TypeName = "INT")]
+        [Column("qu_id")]
         public long? QuId { get; set; }
         [Column("amount")]
         public double? Amount { get; set; }
         [Column("shopping_location_id")]
         public long? ShoppingLocationId { get; set; }
         [Column("last_price", TypeName = "DECIMAL(15, 2)")]
-        public byte[] LastPrice { get; set; }
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        public double LastPrice { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("row_created_timestamp")]
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("note")]
         public string Note { get; set; }
     }

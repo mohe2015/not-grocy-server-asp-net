@@ -21,12 +21,14 @@ namespace NotGrocy.Models
         public string ApiKey1 { get; set; }
         [Column("user_id")]
         public long UserId { get; set; }
-        [Column("expires", TypeName = "DATETIME")]
-        public byte[] Expires { get; set; }
-        [Column("last_used", TypeName = "DATETIME")]
-        public byte[] LastUsed { get; set; }
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+        [Column("expires")]
+        public DateTime Expires { get; set; }
+        [Column("last_used")]
+        public DateTime LastUsed { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("row_created_timestamp")]
+        public DateTime RowCreatedTimestamp { get; set; }
         [Required]
         [Column("key_type")]
         public string KeyType { get; set; }

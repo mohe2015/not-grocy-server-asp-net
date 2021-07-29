@@ -26,8 +26,10 @@ namespace NotGrocy.Models
         [Required]
         [Column("password")]
         public string Password { get; set; }
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("row_created_timestamp")]
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("picture_file_name")]
         public string PictureFileName { get; set; }
     }

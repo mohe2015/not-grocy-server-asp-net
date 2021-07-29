@@ -21,15 +21,17 @@ namespace NotGrocy.Models
         public string Name { get; set; }
         [Column("description")]
         public string Description { get; set; }
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("row_created_timestamp")]
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("picture_file_name")]
         public string PictureFileName { get; set; }
         [Column("base_servings")]
         public long? BaseServings { get; set; }
         [Column("desired_servings")]
         public long? DesiredServings { get; set; }
-        [Column("not_check_shoppinglist", TypeName = "TINYINT")]
+        [Column("not_check_shoppinglist")]
         public long NotCheckShoppinglist { get; set; }
         [Column("type")]
         public string Type { get; set; }

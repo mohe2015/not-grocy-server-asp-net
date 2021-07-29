@@ -20,17 +20,19 @@ namespace NotGrocy.Models
         public string Name { get; set; }
         [Column("description")]
         public string Description { get; set; }
-        [Column("due_date", TypeName = "DATETIME")]
-        public byte[] DueDate { get; set; }
-        [Column("done", TypeName = "TINYINT")]
+        [Column("due_date")]
+        public DateTime DueDate { get; set; }
+        [Column("done")]
         public long Done { get; set; }
-        [Column("done_timestamp", TypeName = "DATETIME")]
-        public byte[] DoneTimestamp { get; set; }
+        [Column("done_timestamp")]
+        public DateTime DoneTimestamp { get; set; }
         [Column("category_id")]
         public long? CategoryId { get; set; }
         [Column("assigned_to_user_id")]
         public long? AssignedToUserId { get; set; }
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("row_created_timestamp")]
+        public DateTime RowCreatedTimestamp { get; set; }
     }
 }

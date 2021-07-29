@@ -28,10 +28,12 @@ namespace NotGrocy.Models
         [Required]
         [Column("type")]
         public string Type { get; set; }
-        [Column("show_as_column_in_tables", TypeName = "TINYINT")]
+        [Column("show_as_column_in_tables")]
         public long ShowAsColumnInTables { get; set; }
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("row_created_timestamp")]
+        public DateTime RowCreatedTimestamp { get; set; }
         [Column("config")]
         public string Config { get; set; }
         [Column("sort_number")]

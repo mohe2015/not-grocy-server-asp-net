@@ -42,11 +42,12 @@ namespace NotGrocy
                         x => x.MigrationsAssembly("NotGrocy.SqliteMigrations")),
                     "Postgresql" => options.UseNpgsql(
                         Configuration.GetConnectionString("PostgresqlConnection"),
-                        x => x.MigrationsAssembly("PostgresqlMigrations")),
+                        x => x.MigrationsAssembly("NotGrocy.PostgresqlMigrations")),
                     "Mysql" => options.UseMySql(
                         Configuration.GetConnectionString("MysqlConnection"),
-                        Microsoft.EntityFrameworkCore.ServerVersion.Parse(Configuration.GetConnectionString("MysqlConnection")),
-                        x => x.MigrationsAssembly("MysqlMigrations")),
+                        Microsoft.EntityFrameworkCore.ServerVersion.AutoDetect(Configuration.GetConnectionString("MysqlConnection")),
+                        //Microsoft.EntityFrameworkCore.ServerVersion.Parse(Configuration.GetConnectionString("MysqlConnection")),
+                        x => x.MigrationsAssembly("NotGrocy.MysqlMigrations")),
 
                     _ => throw new Exception($"Unsupported provider: {provider}")
                 });

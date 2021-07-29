@@ -21,9 +21,11 @@ namespace NotGrocy.Models
         public string Name { get; set; }
         [Column("description")]
         public string Description { get; set; }
-        [Column("row_created_timestamp", TypeName = "DATETIME")]
-        public byte[] RowCreatedTimestamp { get; set; }
-        [Column("is_freezer", TypeName = "TINYINT")]
+        [Column("row_created_timestamp")]
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public DateTime RowCreatedTimestamp { get; set; }
+        [Column("is_freezer")]
         public long IsFreezer { get; set; }
     }
 }
