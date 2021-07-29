@@ -41,7 +41,39 @@ https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/providers?t
 ### Scaffold a controller
 
 ```bash
-dotnet aspnet-codegenerator controller -name LocationsController -async -api -m Location -dc LocationContext -outDir Controllers
+cd NotGrocy
+dotnet aspnet-codegenerator controller -name ApiKeysController -async -api -m ApiKey -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name BatteriesController -async -api -m Battery -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name BatteryChargeCyclesController -async -api -m BatteryChargeCycle -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name ChoresController -async -api -m Chore -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name EquipmentController -async -api -m Equipment -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name LocationsController -async -api -m Location -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name MealPlanController -async -api -m MealPlan -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name PermissionHierarchyController -async -api -m PermissionHierarchy -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name ProductsController -async -api -m Product -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name ProductBarcodesController -async -api -m ProductBarcode -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name ProductGroupsController -async -api -m ProductGroup -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name QuantityUnitsController -async -api -m QuantityUnit -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name QuantityUnitConversionsController -async -api -m QuantityUnitConversion -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name RecipesController -async -api -m Recipe -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name RecipesNestingsController -async -api -m RecipesNesting -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name RecipesNestingsController -async -api -m RecipesNesting -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name RecipesPositionsController -async -api -m RecipesPo -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name SessionsController -async -api -m Session -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name ShoppingListController -async -api -m ShoppingList -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name ShoppingListsController -async -api -m ShoppingList1 -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name ShoppingLocationsController -async -api -m ShoppingLocation -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name StockController -async -api -m Stock -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name StockLogController -async -api -m StockLog -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name TasksController -async -api -m Task -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name TaskCategoriesController -async -api -m TaskCategory -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name UsersController -async -api -m User -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name UserEntitiesController -async -api -m Userentity -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name UserFieldsController -async -api -m Userfield -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name UserFieldValuesController -async -api -m UserfieldValue -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name UserobjectsController -async -api -m Userobject -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name UserPermissionsController -async -api -m UserPermission -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name UserSettingsController -async -api -m UserSetting -dc NotGrocyContext -outDir Controllers
 ```
 
 ### Reverse engineer database

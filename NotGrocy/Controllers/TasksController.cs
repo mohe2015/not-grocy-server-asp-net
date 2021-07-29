@@ -5,54 +5,54 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NotGrocy.Models;
 using NotGrocy;
+using NotGrocy.Models;
 
 namespace NotGrocy.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StockItemsController : ControllerBase
+    public class TasksController : ControllerBase
     {
         private readonly NotGrocyContext _context;
 
-        public StockItemsController(NotGrocyContext context)
+        public TasksController(NotGrocyContext context)
         {
             _context = context;
         }
 
-        // GET: api/StockItems
+        // GET: api/Tasks
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Stock>>> GetStockItems()
+        public async Task<ActionResult<IEnumerable<NotGrocy.Models.Task>>> GetTasks()
         {
-            return await _context.Stocks.ToListAsync();
+            return await _context.Tasks.ToListAsync();
         }
 
-        // GET: api/StockItems/5
+        // GET: api/Tasks/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Stock>> GetStockItem(long id)
+        public async Task<ActionResult<NotGrocy.Models.Task>> GetTask(long id)
         {
-            var stockItem = await _context.Stocks.FindAsync(id);
+            var task = await _context.Tasks.FindAsync(id);
 
-            if (stockItem == null)
+            if (task == null)
             {
                 return NotFound();
             }
 
-            return stockItem;
+            return task;
         }
 
-        // PUT: api/StockItems/5
+        // PUT: api/Tasks/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutStockItem(long id, Stock stockItem)
+        public async Task<IActionResult> PutTask(long id, NotGrocy.Models.Task task)
         {
-            if (id != stockItem.Id)
+            if (id != task.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(stockItem).State = EntityState.Modified;
+            _context.Entry(task).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace NotGrocy.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StockItemExists(id))
+                if (!TaskExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace NotGrocy.Controllers
             return NoContent();
         }
 
-        // POST: api/StockItems
+        // POST: api/Tasks
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Stock>> PostStockItem(Stock stockItem)
+        public async Task<ActionResult<NotGrocy.Models.Task>> PostTask(NotGrocy.Models.Task task)
         {
-            _context.Stocks.Add(stockItem);
+            _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetStockItem", new { id = stockItem.Id }, stockItem);
+            return CreatedAtAction("GetTask", new { id = task.Id }, task);
         }
 
-        // DELETE: api/StockItems/5
+        // DELETE: api/Tasks/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteStockItem(long id)
+        public async Task<IActionResult> DeleteTask(long id)
         {
-            var stockItem = await _context.Stocks.FindAsync(id);
-            if (stockItem == null)
+            var task = await _context.Tasks.FindAsync(id);
+            if (task == null)
             {
                 return NotFound();
             }
 
-            _context.Stocks.Remove(stockItem);
+            _context.Tasks.Remove(task);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool StockItemExists(long id)
+        private bool TaskExists(long id)
         {
-            return _context.Stocks.Any(e => e.Id == id);
+            return _context.Tasks.Any(e => e.Id == id);
         }
     }
 }

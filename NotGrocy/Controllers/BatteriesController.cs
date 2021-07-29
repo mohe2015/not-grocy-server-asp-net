@@ -12,47 +12,47 @@ namespace NotGrocy.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LocationsController : ControllerBase
+    public class BatteriesController : ControllerBase
     {
         private readonly NotGrocyContext _context;
 
-        public LocationsController(NotGrocyContext context)
+        public BatteriesController(NotGrocyContext context)
         {
             _context = context;
         }
 
-        // GET: api/Locations
+        // GET: api/Batteries
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
+        public async Task<ActionResult<IEnumerable<Battery>>> GetBatteries()
         {
-            return await _context.Locations.ToListAsync();
+            return await _context.Batteries.ToListAsync();
         }
 
-        // GET: api/Locations/5
+        // GET: api/Batteries/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Location>> GetLocation(long id)
+        public async Task<ActionResult<Battery>> GetBattery(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
+            var battery = await _context.Batteries.FindAsync(id);
 
-            if (location == null)
+            if (battery == null)
             {
                 return NotFound();
             }
 
-            return location;
+            return battery;
         }
 
-        // PUT: api/Locations/5
+        // PUT: api/Batteries/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLocation(long id, Location location)
+        public async Task<IActionResult> PutBattery(long id, Battery battery)
         {
-            if (id != location.Id)
+            if (id != battery.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(location).State = EntityState.Modified;
+            _context.Entry(battery).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace NotGrocy.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LocationExists(id))
+                if (!BatteryExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace NotGrocy.Controllers
             return NoContent();
         }
 
-        // POST: api/Locations
+        // POST: api/Batteries
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Location>> PostLocation(Location location)
+        public async Task<ActionResult<Battery>> PostBattery(Battery battery)
         {
-            _context.Locations.Add(location);
+            _context.Batteries.Add(battery);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLocation", new { id = location.Id }, location);
+            return CreatedAtAction("GetBattery", new { id = battery.Id }, battery);
         }
 
-        // DELETE: api/Locations/5
+        // DELETE: api/Batteries/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLocation(long id)
+        public async Task<IActionResult> DeleteBattery(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
-            if (location == null)
+            var battery = await _context.Batteries.FindAsync(id);
+            if (battery == null)
             {
                 return NotFound();
             }
 
-            _context.Locations.Remove(location);
+            _context.Batteries.Remove(battery);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LocationExists(long id)
+        private bool BatteryExists(long id)
         {
-            return _context.Locations.Any(e => e.Id == id);
+            return _context.Batteries.Any(e => e.Id == id);
         }
     }
 }

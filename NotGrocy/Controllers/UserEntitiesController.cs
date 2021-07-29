@@ -12,47 +12,47 @@ namespace NotGrocy.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LocationsController : ControllerBase
+    public class UserEntitiesController : ControllerBase
     {
         private readonly NotGrocyContext _context;
 
-        public LocationsController(NotGrocyContext context)
+        public UserEntitiesController(NotGrocyContext context)
         {
             _context = context;
         }
 
-        // GET: api/Locations
+        // GET: api/UserEntities
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
+        public async Task<ActionResult<IEnumerable<Userentity>>> GetUserentities()
         {
-            return await _context.Locations.ToListAsync();
+            return await _context.Userentities.ToListAsync();
         }
 
-        // GET: api/Locations/5
+        // GET: api/UserEntities/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Location>> GetLocation(long id)
+        public async Task<ActionResult<Userentity>> GetUserentity(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
+            var userentity = await _context.Userentities.FindAsync(id);
 
-            if (location == null)
+            if (userentity == null)
             {
                 return NotFound();
             }
 
-            return location;
+            return userentity;
         }
 
-        // PUT: api/Locations/5
+        // PUT: api/UserEntities/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLocation(long id, Location location)
+        public async Task<IActionResult> PutUserentity(long id, Userentity userentity)
         {
-            if (id != location.Id)
+            if (id != userentity.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(location).State = EntityState.Modified;
+            _context.Entry(userentity).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace NotGrocy.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LocationExists(id))
+                if (!UserentityExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace NotGrocy.Controllers
             return NoContent();
         }
 
-        // POST: api/Locations
+        // POST: api/UserEntities
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Location>> PostLocation(Location location)
+        public async Task<ActionResult<Userentity>> PostUserentity(Userentity userentity)
         {
-            _context.Locations.Add(location);
+            _context.Userentities.Add(userentity);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLocation", new { id = location.Id }, location);
+            return CreatedAtAction("GetUserentity", new { id = userentity.Id }, userentity);
         }
 
-        // DELETE: api/Locations/5
+        // DELETE: api/UserEntities/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLocation(long id)
+        public async Task<IActionResult> DeleteUserentity(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
-            if (location == null)
+            var userentity = await _context.Userentities.FindAsync(id);
+            if (userentity == null)
             {
                 return NotFound();
             }
 
-            _context.Locations.Remove(location);
+            _context.Userentities.Remove(userentity);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LocationExists(long id)
+        private bool UserentityExists(long id)
         {
-            return _context.Locations.Any(e => e.Id == id);
+            return _context.Userentities.Any(e => e.Id == id);
         }
     }
 }

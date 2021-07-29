@@ -12,47 +12,47 @@ namespace NotGrocy.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LocationsController : ControllerBase
+    public class SessionsController : ControllerBase
     {
         private readonly NotGrocyContext _context;
 
-        public LocationsController(NotGrocyContext context)
+        public SessionsController(NotGrocyContext context)
         {
             _context = context;
         }
 
-        // GET: api/Locations
+        // GET: api/Sessions
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
+        public async Task<ActionResult<IEnumerable<Session>>> GetSessions()
         {
-            return await _context.Locations.ToListAsync();
+            return await _context.Sessions.ToListAsync();
         }
 
-        // GET: api/Locations/5
+        // GET: api/Sessions/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Location>> GetLocation(long id)
+        public async Task<ActionResult<Session>> GetSession(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
+            var session = await _context.Sessions.FindAsync(id);
 
-            if (location == null)
+            if (session == null)
             {
                 return NotFound();
             }
 
-            return location;
+            return session;
         }
 
-        // PUT: api/Locations/5
+        // PUT: api/Sessions/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLocation(long id, Location location)
+        public async Task<IActionResult> PutSession(long id, Session session)
         {
-            if (id != location.Id)
+            if (id != session.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(location).State = EntityState.Modified;
+            _context.Entry(session).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace NotGrocy.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LocationExists(id))
+                if (!SessionExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace NotGrocy.Controllers
             return NoContent();
         }
 
-        // POST: api/Locations
+        // POST: api/Sessions
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Location>> PostLocation(Location location)
+        public async Task<ActionResult<Session>> PostSession(Session session)
         {
-            _context.Locations.Add(location);
+            _context.Sessions.Add(session);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLocation", new { id = location.Id }, location);
+            return CreatedAtAction("GetSession", new { id = session.Id }, session);
         }
 
-        // DELETE: api/Locations/5
+        // DELETE: api/Sessions/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLocation(long id)
+        public async Task<IActionResult> DeleteSession(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
-            if (location == null)
+            var session = await _context.Sessions.FindAsync(id);
+            if (session == null)
             {
                 return NotFound();
             }
 
-            _context.Locations.Remove(location);
+            _context.Sessions.Remove(session);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LocationExists(long id)
+        private bool SessionExists(long id)
         {
-            return _context.Locations.Any(e => e.Id == id);
+            return _context.Sessions.Any(e => e.Id == id);
         }
     }
 }

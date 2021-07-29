@@ -12,47 +12,47 @@ namespace NotGrocy.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LocationsController : ControllerBase
+    public class MealPlanController : ControllerBase
     {
         private readonly NotGrocyContext _context;
 
-        public LocationsController(NotGrocyContext context)
+        public MealPlanController(NotGrocyContext context)
         {
             _context = context;
         }
 
-        // GET: api/Locations
+        // GET: api/MealPlan
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
+        public async Task<ActionResult<IEnumerable<MealPlan>>> GetMealPlans()
         {
-            return await _context.Locations.ToListAsync();
+            return await _context.MealPlans.ToListAsync();
         }
 
-        // GET: api/Locations/5
+        // GET: api/MealPlan/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Location>> GetLocation(long id)
+        public async Task<ActionResult<MealPlan>> GetMealPlan(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
+            var mealPlan = await _context.MealPlans.FindAsync(id);
 
-            if (location == null)
+            if (mealPlan == null)
             {
                 return NotFound();
             }
 
-            return location;
+            return mealPlan;
         }
 
-        // PUT: api/Locations/5
+        // PUT: api/MealPlan/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLocation(long id, Location location)
+        public async Task<IActionResult> PutMealPlan(long id, MealPlan mealPlan)
         {
-            if (id != location.Id)
+            if (id != mealPlan.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(location).State = EntityState.Modified;
+            _context.Entry(mealPlan).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace NotGrocy.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LocationExists(id))
+                if (!MealPlanExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace NotGrocy.Controllers
             return NoContent();
         }
 
-        // POST: api/Locations
+        // POST: api/MealPlan
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Location>> PostLocation(Location location)
+        public async Task<ActionResult<MealPlan>> PostMealPlan(MealPlan mealPlan)
         {
-            _context.Locations.Add(location);
+            _context.MealPlans.Add(mealPlan);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLocation", new { id = location.Id }, location);
+            return CreatedAtAction("GetMealPlan", new { id = mealPlan.Id }, mealPlan);
         }
 
-        // DELETE: api/Locations/5
+        // DELETE: api/MealPlan/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLocation(long id)
+        public async Task<IActionResult> DeleteMealPlan(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
-            if (location == null)
+            var mealPlan = await _context.MealPlans.FindAsync(id);
+            if (mealPlan == null)
             {
                 return NotFound();
             }
 
-            _context.Locations.Remove(location);
+            _context.MealPlans.Remove(mealPlan);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LocationExists(long id)
+        private bool MealPlanExists(long id)
         {
-            return _context.Locations.Any(e => e.Id == id);
+            return _context.MealPlans.Any(e => e.Id == id);
         }
     }
 }

@@ -12,47 +12,47 @@ namespace NotGrocy.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LocationsController : ControllerBase
+    public class ApiKeysController : ControllerBase
     {
         private readonly NotGrocyContext _context;
 
-        public LocationsController(NotGrocyContext context)
+        public ApiKeysController(NotGrocyContext context)
         {
             _context = context;
         }
 
-        // GET: api/Locations
+        // GET: api/ApiKeys
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
+        public async Task<ActionResult<IEnumerable<ApiKey>>> GetApiKeys()
         {
-            return await _context.Locations.ToListAsync();
+            return await _context.ApiKeys.ToListAsync();
         }
 
-        // GET: api/Locations/5
+        // GET: api/ApiKeys/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Location>> GetLocation(long id)
+        public async Task<ActionResult<ApiKey>> GetApiKey(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
+            var apiKey = await _context.ApiKeys.FindAsync(id);
 
-            if (location == null)
+            if (apiKey == null)
             {
                 return NotFound();
             }
 
-            return location;
+            return apiKey;
         }
 
-        // PUT: api/Locations/5
+        // PUT: api/ApiKeys/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLocation(long id, Location location)
+        public async Task<IActionResult> PutApiKey(long id, ApiKey apiKey)
         {
-            if (id != location.Id)
+            if (id != apiKey.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(location).State = EntityState.Modified;
+            _context.Entry(apiKey).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace NotGrocy.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LocationExists(id))
+                if (!ApiKeyExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace NotGrocy.Controllers
             return NoContent();
         }
 
-        // POST: api/Locations
+        // POST: api/ApiKeys
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Location>> PostLocation(Location location)
+        public async Task<ActionResult<ApiKey>> PostApiKey(ApiKey apiKey)
         {
-            _context.Locations.Add(location);
+            _context.ApiKeys.Add(apiKey);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLocation", new { id = location.Id }, location);
+            return CreatedAtAction("GetApiKey", new { id = apiKey.Id }, apiKey);
         }
 
-        // DELETE: api/Locations/5
+        // DELETE: api/ApiKeys/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLocation(long id)
+        public async Task<IActionResult> DeleteApiKey(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
-            if (location == null)
+            var apiKey = await _context.ApiKeys.FindAsync(id);
+            if (apiKey == null)
             {
                 return NotFound();
             }
 
-            _context.Locations.Remove(location);
+            _context.ApiKeys.Remove(apiKey);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LocationExists(long id)
+        private bool ApiKeyExists(long id)
         {
-            return _context.Locations.Any(e => e.Id == id);
+            return _context.ApiKeys.Any(e => e.Id == id);
         }
     }
 }
