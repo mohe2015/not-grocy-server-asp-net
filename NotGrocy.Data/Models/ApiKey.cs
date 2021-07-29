@@ -19,8 +19,12 @@ namespace NotGrocy.Models
         [Required]
         [Column("api_key")]
         public string ApiKey1 { get; set; }
+
         [Column("user_id")]
         public long UserId { get; set; }
+
+        public User User { get; set; }
+
         [Column("expires")]
         public DateTime Expires { get; set; }
         [Column("last_used")]

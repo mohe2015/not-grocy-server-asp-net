@@ -15,6 +15,8 @@ dotnet user-secrets set "Movies:ServiceApiKey" "12345"
 
 ## Development
 
+In theory we need two migrations for sqlite (the grocy one and our one) and one for all other databases.
+
 ### Run migrations
 
 ```
@@ -87,7 +89,7 @@ dotnet ef dbcontext scaffold "Data Source=not-grocy.db" Microsoft.EntityFramewor
 ### Migrations
 
 ```bash
-dotnet ef migrations add Init --project ../NotGrocy.SqliteMigrations -- --provider Sqlite
+dotnet ef migrations add Fixes --project ../NotGrocy.SqliteMigrations -- --provider Sqlite
 dotnet ef migrations add Init --project ../NotGrocy.PostgresqlMigrations -- --provider Postgresql
 dotnet ef migrations add Init --project ../NotGrocy.MysqlMigrations -- --provider Mysql
 

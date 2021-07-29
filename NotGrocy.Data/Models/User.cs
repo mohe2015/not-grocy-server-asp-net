@@ -32,5 +32,6 @@ namespace NotGrocy.Models
         public DateTime RowCreatedTimestamp { get; set; }
         [Column("picture_file_name")]
         public string PictureFileName { get; set; }
+        public List<ApiKey> ApiKeys { get; set; }
     }
 }
