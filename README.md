@@ -61,7 +61,7 @@ https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/providers?t
 
 ```bash
 cd NotGrocy
-dotnet aspnet-codegenerator controller -name ApiKeysController -async -api -m ApiKey -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name ApiKeysController -async -api -m ApiKey -dc NotGrocyContext -outDir Controllers --force
 dotnet aspnet-codegenerator controller -name BatteriesController -async -api -m Battery -dc NotGrocyContext -outDir Controllers
 dotnet aspnet-codegenerator controller -name BatteryChargeCyclesController -async -api -m BatteryChargeCycle -dc NotGrocyContext -outDir Controllers
 dotnet aspnet-codegenerator controller -name ChoresController -async -api -m Chore -dc NotGrocyContext -outDir Controllers
@@ -86,7 +86,7 @@ dotnet aspnet-codegenerator controller -name StockController -async -api -m Stoc
 dotnet aspnet-codegenerator controller -name StockLogController -async -api -m StockLog -dc NotGrocyContext -outDir Controllers
 dotnet aspnet-codegenerator controller -name TasksController -async -api -m Task -dc NotGrocyContext -outDir Controllers
 dotnet aspnet-codegenerator controller -name TaskCategoriesController -async -api -m TaskCategory -dc NotGrocyContext -outDir Controllers
-dotnet aspnet-codegenerator controller -name UsersController -async -api -m User -dc NotGrocyContext -outDir Controllers
+dotnet aspnet-codegenerator controller -name UsersController -async -api -m User -dc NotGrocyContext -outDir Controllers --force
 dotnet aspnet-codegenerator controller -name UserEntitiesController -async -api -m Userentity -dc NotGrocyContext -outDir Controllers
 dotnet aspnet-codegenerator controller -name UserFieldsController -async -api -m Userfield -dc NotGrocyContext -outDir Controllers
 dotnet aspnet-codegenerator controller -name UserFieldValuesController -async -api -m UserfieldValue -dc NotGrocyContext -outDir Controllers
@@ -133,6 +133,9 @@ https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-an
 also has notes on nullability
 
 ### Important documentation
+
+https://docs.microsoft.com/en-us/ef/ef6/querying/related-data
+https://docs.microsoft.com/en-us/ef/core/querying/related-data/#eager-loading
 
 https://www.npgsql.org/doc/types/datetime.html
 https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/wiki/Configuration-Options

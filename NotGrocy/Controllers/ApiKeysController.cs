@@ -26,6 +26,7 @@ namespace NotGrocy.Controllers
         public async Task<ActionResult<IEnumerable<ApiKey>>> GetApiKeys()
         {
             return await _context.ApiKeys.ToListAsync();
+            //return await _context.ApiKeys.Include(k => k.User).ToListAsync();
         }
 
         // GET: api/ApiKeys/5
