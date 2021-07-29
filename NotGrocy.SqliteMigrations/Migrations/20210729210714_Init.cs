@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace NotGrocy.SqliteMigrations
+namespace NotGrocy.SqliteMigrations.Migrations
 {
-    public partial class MyMigration : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,9 +15,9 @@ namespace NotGrocy.SqliteMigrations
                         .Annotation("Sqlite:Autoincrement", true),
                     api_key = table.Column<string>(type: "TEXT", nullable: false),
                     user_id = table.Column<long>(type: "INTEGER", nullable: false),
-                    expires = table.Column<byte[]>(type: "DATETIME", nullable: true),
-                    last_used = table.Column<byte[]>(type: "DATETIME", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
+                    expires = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    last_used = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     key_type = table.Column<string>(type: "TEXT", nullable: false, defaultValueSql: "'default'")
                 },
                 constraints: table =>
@@ -35,8 +35,8 @@ namespace NotGrocy.SqliteMigrations
                     description = table.Column<string>(type: "TEXT", nullable: true),
                     used_in = table.Column<string>(type: "TEXT", nullable: true),
                     charge_interval_days = table.Column<long>(type: "INTEGER", nullable: false),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
-                    active = table.Column<long>(type: "TINYINT", nullable: false, defaultValueSql: "1")
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    active = table.Column<long>(type: "INTEGER", nullable: false, defaultValueSql: "1")
                 },
                 constraints: table =>
                 {
@@ -50,10 +50,10 @@ namespace NotGrocy.SqliteMigrations
                     id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     battery_id = table.Column<string>(type: "TEXT", nullable: false),
-                    tracked_time = table.Column<byte[]>(type: "DATETIME", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
-                    undone = table.Column<long>(type: "TINYINT", nullable: false),
-                    undone_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true)
+                    tracked_time = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    undone = table.Column<long>(type: "INTEGER", nullable: false),
+                    undone_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -70,18 +70,18 @@ namespace NotGrocy.SqliteMigrations
                     description = table.Column<string>(type: "TEXT", nullable: true),
                     period_type = table.Column<string>(type: "TEXT", nullable: false),
                     period_days = table.Column<long>(type: "INTEGER", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     period_config = table.Column<string>(type: "TEXT", nullable: true),
-                    track_date_only = table.Column<long>(type: "TINYINT", nullable: true, defaultValueSql: "0"),
-                    rollover = table.Column<long>(type: "TINYINT", nullable: true, defaultValueSql: "0"),
+                    track_date_only = table.Column<long>(type: "INTEGER", nullable: true, defaultValueSql: "0"),
+                    rollover = table.Column<long>(type: "INTEGER", nullable: true, defaultValueSql: "0"),
                     assignment_type = table.Column<string>(type: "TEXT", nullable: true),
                     assignment_config = table.Column<string>(type: "TEXT", nullable: true),
-                    next_execution_assigned_to_user_id = table.Column<long>(type: "INT", nullable: true),
-                    consume_product_on_execution = table.Column<long>(type: "TINYINT", nullable: false),
-                    product_id = table.Column<long>(type: "TINYINT", nullable: true),
+                    next_execution_assigned_to_user_id = table.Column<long>(type: "INTEGER", nullable: true),
+                    consume_product_on_execution = table.Column<long>(type: "INTEGER", nullable: false),
+                    product_id = table.Column<long>(type: "INTEGER", nullable: true),
                     product_amount = table.Column<double>(type: "REAL", nullable: true),
                     period_interval = table.Column<long>(type: "INTEGER", nullable: false, defaultValueSql: "1"),
-                    active = table.Column<long>(type: "TINYINT", nullable: false, defaultValueSql: "1")
+                    active = table.Column<long>(type: "INTEGER", nullable: false, defaultValueSql: "1")
                 },
                 constraints: table =>
                 {
@@ -95,11 +95,11 @@ namespace NotGrocy.SqliteMigrations
                     id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     chore_id = table.Column<long>(type: "INTEGER", nullable: false),
-                    tracked_time = table.Column<byte[]>(type: "DATETIME", nullable: true),
+                    tracked_time = table.Column<DateTime>(type: "TEXT", nullable: false),
                     done_by_user_id = table.Column<long>(type: "INTEGER", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
-                    undone = table.Column<long>(type: "TINYINT", nullable: false),
-                    undone_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true)
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    undone = table.Column<long>(type: "INTEGER", nullable: false),
+                    undone_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -115,7 +115,7 @@ namespace NotGrocy.SqliteMigrations
                     name = table.Column<string>(type: "TEXT", nullable: false),
                     description = table.Column<string>(type: "TEXT", nullable: true),
                     instruction_manual_file_name = table.Column<string>(type: "TEXT", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -130,8 +130,8 @@ namespace NotGrocy.SqliteMigrations
                         .Annotation("Sqlite:Autoincrement", true),
                     name = table.Column<string>(type: "TEXT", nullable: false),
                     description = table.Column<string>(type: "TEXT", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
-                    is_freezer = table.Column<long>(type: "TINYINT", nullable: false)
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    is_freezer = table.Column<long>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -144,7 +144,7 @@ namespace NotGrocy.SqliteMigrations
                 {
                     id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    day = table.Column<byte[]>(type: "DATE", nullable: false),
+                    day = table.Column<DateTime>(type: "DATE", nullable: false),
                     type = table.Column<string>(type: "TEXT", nullable: true, defaultValueSql: "'recipe'"),
                     recipe_id = table.Column<long>(type: "INTEGER", nullable: true),
                     recipe_servings = table.Column<long>(type: "INTEGER", nullable: true, defaultValueSql: "1"),
@@ -152,7 +152,7 @@ namespace NotGrocy.SqliteMigrations
                     product_id = table.Column<long>(type: "INTEGER", nullable: true),
                     product_amount = table.Column<double>(type: "REAL", nullable: true, defaultValueSql: "0"),
                     product_qu_id = table.Column<long>(type: "INTEGER", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -179,13 +179,13 @@ namespace NotGrocy.SqliteMigrations
                 {
                     id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    product_id = table.Column<long>(type: "INT", nullable: false),
+                    product_id = table.Column<long>(type: "INTEGER", nullable: false),
                     barcode = table.Column<string>(type: "TEXT", nullable: false),
-                    qu_id = table.Column<long>(type: "INT", nullable: true),
+                    qu_id = table.Column<long>(type: "INTEGER", nullable: true),
                     amount = table.Column<double>(type: "REAL", nullable: true),
                     shopping_location_id = table.Column<long>(type: "INTEGER", nullable: true),
-                    last_price = table.Column<byte[]>(type: "DECIMAL(15, 2)", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
+                    last_price = table.Column<double>(type: "DECIMAL(15, 2)", nullable: false),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     note = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
@@ -201,11 +201,44 @@ namespace NotGrocy.SqliteMigrations
                         .Annotation("Sqlite:Autoincrement", true),
                     name = table.Column<string>(type: "TEXT", nullable: false),
                     description = table.Column<string>(type: "TEXT", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_product_groups", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "products",
+                columns: table => new
+                {
+                    id = table.Column<long>(type: "INTEGER", nullable: false, comment: "This is a test")
+                        .Annotation("Sqlite:Autoincrement", true),
+                    name = table.Column<string>(type: "TEXT", nullable: false),
+                    description = table.Column<string>(type: "TEXT", nullable: true),
+                    product_group_id = table.Column<long>(type: "INTEGER", nullable: true),
+                    location_id = table.Column<long>(type: "INTEGER", nullable: false),
+                    shopping_location_id = table.Column<long>(type: "INTEGER", nullable: true),
+                    qu_id_purchase = table.Column<long>(type: "INTEGER", nullable: false),
+                    qu_id_stock = table.Column<long>(type: "INTEGER", nullable: false),
+                    qu_factor_purchase_to_stock = table.Column<double>(type: "REAL", nullable: false),
+                    min_stock_amount = table.Column<long>(type: "INTEGER", nullable: false),
+                    default_best_before_days = table.Column<long>(type: "INTEGER", nullable: false),
+                    default_best_before_days_after_open = table.Column<long>(type: "INTEGER", nullable: false),
+                    default_best_before_days_after_freezing = table.Column<long>(type: "INTEGER", nullable: false),
+                    default_best_before_days_after_thawing = table.Column<long>(type: "INTEGER", nullable: false),
+                    picture_file_name = table.Column<string>(type: "TEXT", nullable: false),
+                    tare_weight = table.Column<double>(type: "REAL", nullable: false),
+                    parent_product_id = table.Column<long>(type: "INTEGER", nullable: false),
+                    calories = table.Column<long>(type: "INTEGER", nullable: true),
+                    due_type = table.Column<long>(type: "INTEGER", nullable: false),
+                    quick_consume_amount = table.Column<double>(type: "REAL", nullable: false),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    default_print_stock_label = table.Column<long>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_products", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -214,11 +247,11 @@ namespace NotGrocy.SqliteMigrations
                 {
                     id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    from_qu_id = table.Column<long>(type: "INT", nullable: false),
-                    to_qu_id = table.Column<long>(type: "INT", nullable: false),
+                    from_qu_id = table.Column<long>(type: "INTEGER", nullable: false),
+                    to_qu_id = table.Column<long>(type: "INTEGER", nullable: false),
                     factor = table.Column<double>(type: "REAL", nullable: false),
-                    product_id = table.Column<long>(type: "INT", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')")
+                    product_id = table.Column<long>(type: "INTEGER", nullable: true),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -233,7 +266,7 @@ namespace NotGrocy.SqliteMigrations
                         .Annotation("Sqlite:Autoincrement", true),
                     name = table.Column<string>(type: "TEXT", nullable: false),
                     description = table.Column<string>(type: "TEXT", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     name_plural = table.Column<string>(type: "TEXT", nullable: true),
                     plural_forms = table.Column<string>(type: "TEXT", nullable: true)
                 },
@@ -250,11 +283,11 @@ namespace NotGrocy.SqliteMigrations
                         .Annotation("Sqlite:Autoincrement", true),
                     name = table.Column<string>(type: "TEXT", nullable: false),
                     description = table.Column<string>(type: "TEXT", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     picture_file_name = table.Column<string>(type: "TEXT", nullable: true),
                     base_servings = table.Column<long>(type: "INTEGER", nullable: true, defaultValueSql: "1"),
                     desired_servings = table.Column<long>(type: "INTEGER", nullable: true, defaultValueSql: "1"),
-                    not_check_shoppinglist = table.Column<long>(type: "TINYINT", nullable: false),
+                    not_check_shoppinglist = table.Column<long>(type: "INTEGER", nullable: false),
                     type = table.Column<string>(type: "TEXT", nullable: true, defaultValueSql: "'normal'"),
                     product_id = table.Column<long>(type: "INTEGER", nullable: true)
                 },
@@ -271,7 +304,7 @@ namespace NotGrocy.SqliteMigrations
                         .Annotation("Sqlite:Autoincrement", true),
                     recipe_id = table.Column<long>(type: "INTEGER", nullable: false),
                     includes_recipe_id = table.Column<long>(type: "INTEGER", nullable: false),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     servings = table.Column<long>(type: "INTEGER", nullable: true, defaultValueSql: "1")
                 },
                 constraints: table =>
@@ -290,10 +323,10 @@ namespace NotGrocy.SqliteMigrations
                     amount = table.Column<double>(type: "REAL", nullable: false),
                     note = table.Column<string>(type: "TEXT", nullable: true),
                     qu_id = table.Column<long>(type: "INTEGER", nullable: true),
-                    only_check_single_unit_in_stock = table.Column<long>(type: "TINYINT", nullable: false),
+                    only_check_single_unit_in_stock = table.Column<long>(type: "INTEGER", nullable: false),
                     ingredient_group = table.Column<string>(type: "TEXT", nullable: true),
-                    not_check_stock_fulfillment = table.Column<long>(type: "TINYINT", nullable: false),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
+                    not_check_stock_fulfillment = table.Column<long>(type: "INTEGER", nullable: false),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     variable_amount = table.Column<string>(type: "TEXT", nullable: true),
                     price_factor = table.Column<double>(type: "REAL", nullable: false, defaultValueSql: "1")
                 },
@@ -310,9 +343,9 @@ namespace NotGrocy.SqliteMigrations
                         .Annotation("Sqlite:Autoincrement", true),
                     session_key = table.Column<string>(type: "TEXT", nullable: false),
                     user_id = table.Column<long>(type: "INTEGER", nullable: false),
-                    expires = table.Column<byte[]>(type: "DATETIME", nullable: true),
-                    last_used = table.Column<byte[]>(type: "DATETIME", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')")
+                    expires = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    last_used = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -327,10 +360,10 @@ namespace NotGrocy.SqliteMigrations
                         .Annotation("Sqlite:Autoincrement", true),
                     product_id = table.Column<long>(type: "INTEGER", nullable: true),
                     note = table.Column<string>(type: "TEXT", nullable: true),
-                    amount = table.Column<byte[]>(type: "DECIMAL(15, 2)", nullable: false, defaultValueSql: "0"),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
-                    shopping_list_id = table.Column<long>(type: "INT", nullable: true, defaultValueSql: "1"),
-                    done = table.Column<long>(type: "INT", nullable: true, defaultValueSql: "0"),
+                    amount = table.Column<double>(type: "DECIMAL(15, 2)", nullable: false, defaultValueSql: "0"),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    shopping_list_id = table.Column<long>(type: "INTEGER", nullable: true, defaultValueSql: "1"),
+                    done = table.Column<long>(type: "INTEGER", nullable: true, defaultValueSql: "0"),
                     qu_id = table.Column<long>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -346,7 +379,7 @@ namespace NotGrocy.SqliteMigrations
                         .Annotation("Sqlite:Autoincrement", true),
                     name = table.Column<string>(type: "TEXT", nullable: false),
                     description = table.Column<string>(type: "TEXT", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -361,7 +394,7 @@ namespace NotGrocy.SqliteMigrations
                         .Annotation("Sqlite:Autoincrement", true),
                     name = table.Column<string>(type: "TEXT", nullable: false),
                     description = table.Column<string>(type: "TEXT", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -375,14 +408,14 @@ namespace NotGrocy.SqliteMigrations
                     id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     product_id = table.Column<long>(type: "INTEGER", nullable: false),
-                    amount = table.Column<byte[]>(type: "DECIMAL(15, 2)", nullable: false),
-                    best_before_date = table.Column<byte[]>(type: "DATE", nullable: true),
-                    purchased_date = table.Column<byte[]>(type: "DATE", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
+                    amount = table.Column<double>(type: "DECIMAL(15, 2)", nullable: false),
+                    best_before_date = table.Column<DateTime>(type: "DATE", nullable: false),
+                    purchased_date = table.Column<DateTime>(type: "DATE", nullable: false),
                     stock_id = table.Column<string>(type: "TEXT", nullable: false),
-                    price = table.Column<byte[]>(type: "DECIMAL(15, 2)", nullable: true),
-                    open = table.Column<long>(type: "TINYINT", nullable: false),
-                    opened_date = table.Column<byte[]>(type: "DATETIME", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
+                    price = table.Column<double>(type: "DECIMAL(15, 2)", nullable: false),
+                    open = table.Column<long>(type: "INTEGER", nullable: false),
+                    opened_date = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     location_id = table.Column<long>(type: "INTEGER", nullable: true),
                     shopping_location_id = table.Column<long>(type: "INTEGER", nullable: true)
                 },
@@ -398,18 +431,18 @@ namespace NotGrocy.SqliteMigrations
                     id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     product_id = table.Column<long>(type: "INTEGER", nullable: false),
-                    amount = table.Column<byte[]>(type: "DECIMAL(15, 2)", nullable: false),
-                    best_before_date = table.Column<byte[]>(type: "DATE", nullable: true),
-                    purchased_date = table.Column<byte[]>(type: "DATE", nullable: true),
-                    used_date = table.Column<byte[]>(type: "DATE", nullable: true),
+                    amount = table.Column<double>(type: "DECIMAL(15, 2)", nullable: false),
+                    best_before_date = table.Column<DateTime>(type: "DATE", nullable: false),
+                    purchased_date = table.Column<DateTime>(type: "DATE", nullable: false),
+                    used_date = table.Column<DateTime>(type: "DATE", nullable: false),
                     spoiled = table.Column<long>(type: "INTEGER", nullable: false),
                     stock_id = table.Column<string>(type: "TEXT", nullable: false),
                     transaction_type = table.Column<string>(type: "TEXT", nullable: false),
-                    price = table.Column<byte[]>(type: "DECIMAL(15, 2)", nullable: true),
-                    undone = table.Column<long>(type: "TINYINT", nullable: false),
-                    undone_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true),
-                    opened_date = table.Column<byte[]>(type: "DATETIME", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
+                    price = table.Column<double>(type: "DECIMAL(15, 2)", nullable: false),
+                    undone = table.Column<long>(type: "INTEGER", nullable: false),
+                    undone_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    opened_date = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     location_id = table.Column<long>(type: "INTEGER", nullable: true),
                     recipe_id = table.Column<long>(type: "INTEGER", nullable: true),
                     correlation_id = table.Column<string>(type: "TEXT", nullable: true),
@@ -431,7 +464,7 @@ namespace NotGrocy.SqliteMigrations
                         .Annotation("Sqlite:Autoincrement", true),
                     name = table.Column<string>(type: "TEXT", nullable: false),
                     description = table.Column<string>(type: "TEXT", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -446,12 +479,12 @@ namespace NotGrocy.SqliteMigrations
                         .Annotation("Sqlite:Autoincrement", true),
                     name = table.Column<string>(type: "TEXT", nullable: false),
                     description = table.Column<string>(type: "TEXT", nullable: true),
-                    due_date = table.Column<byte[]>(type: "DATETIME", nullable: true),
-                    done = table.Column<long>(type: "TINYINT", nullable: false),
-                    done_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true),
+                    due_date = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    done = table.Column<long>(type: "INTEGER", nullable: false),
+                    done_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     category_id = table.Column<long>(type: "INTEGER", nullable: true),
                     assigned_to_user_id = table.Column<long>(type: "INTEGER", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -481,8 +514,8 @@ namespace NotGrocy.SqliteMigrations
                     user_id = table.Column<long>(type: "INTEGER", nullable: false),
                     key = table.Column<string>(type: "TEXT", nullable: false),
                     value = table.Column<string>(type: "TEXT", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
-                    row_updated_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    row_updated_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -498,9 +531,9 @@ namespace NotGrocy.SqliteMigrations
                     name = table.Column<string>(type: "TEXT", nullable: false),
                     caption = table.Column<string>(type: "TEXT", nullable: false),
                     description = table.Column<string>(type: "TEXT", nullable: true),
-                    show_in_sidebar_menu = table.Column<long>(type: "TINYINT", nullable: false, defaultValueSql: "1"),
+                    show_in_sidebar_menu = table.Column<long>(type: "INTEGER", nullable: false, defaultValueSql: "1"),
                     icon_css_class = table.Column<string>(type: "TEXT", nullable: true),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -516,7 +549,7 @@ namespace NotGrocy.SqliteMigrations
                     field_id = table.Column<long>(type: "INTEGER", nullable: false),
                     object_id = table.Column<long>(type: "INTEGER", nullable: false),
                     value = table.Column<string>(type: "TEXT", nullable: false),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -533,8 +566,8 @@ namespace NotGrocy.SqliteMigrations
                     name = table.Column<string>(type: "TEXT", nullable: false),
                     caption = table.Column<string>(type: "TEXT", nullable: false),
                     type = table.Column<string>(type: "TEXT", nullable: false),
-                    show_as_column_in_tables = table.Column<long>(type: "TINYINT", nullable: false),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
+                    show_as_column_in_tables = table.Column<long>(type: "INTEGER", nullable: false),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     config = table.Column<string>(type: "TEXT", nullable: true),
                     sort_number = table.Column<long>(type: "INTEGER", nullable: true)
                 },
@@ -550,7 +583,7 @@ namespace NotGrocy.SqliteMigrations
                     id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     userentity_id = table.Column<long>(type: "INTEGER", nullable: false),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')")
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -567,7 +600,7 @@ namespace NotGrocy.SqliteMigrations
                     first_name = table.Column<string>(type: "TEXT", nullable: true),
                     last_name = table.Column<string>(type: "TEXT", nullable: true),
                     password = table.Column<string>(type: "TEXT", nullable: false),
-                    row_created_timestamp = table.Column<byte[]>(type: "DATETIME", nullable: true, defaultValueSql: "datetime('now', 'localtime')"),
+                    row_created_timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     picture_file_name = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
@@ -696,6 +729,18 @@ namespace NotGrocy.SqliteMigrations
             migrationBuilder.CreateIndex(
                 name: "IX_product_groups_name",
                 table: "product_groups",
+                column: "name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_products_id",
+                table: "products",
+                column: "id",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_products_name",
+                table: "products",
                 column: "name",
                 unique: true);
 
@@ -936,6 +981,9 @@ namespace NotGrocy.SqliteMigrations
 
             migrationBuilder.DropTable(
                 name: "product_groups");
+
+            migrationBuilder.DropTable(
+                name: "products");
 
             migrationBuilder.DropTable(
                 name: "quantity_unit_conversions");
