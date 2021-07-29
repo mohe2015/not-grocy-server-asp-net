@@ -17,6 +17,23 @@ dotnet user-secrets set "Movies:ServiceApiKey" "12345"
 
 In theory we need two migrations for sqlite (the grocy one and our one) and one for all other databases.
 
+### Setup from existing database
+
+```
+dotnet ef migrations script 0 20210729210714_Init
+# extract relevant parts:
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20210729210714_Init', '5.0.8');
+# run these manually on the database
+sqlite3 not-grocy.db
+# verify with
+dotnet ef migrations list
+```
+
 ### Run migrations
 
 ```
