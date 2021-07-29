@@ -189,8 +189,8 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnType("text")
                         .HasColumnName("name");
 
-                    b.Property<int?>("NextExecutionAssignedToUserId")
-                        .HasColumnType("INT")
+                    b.Property<long?>("NextExecutionAssignedToUserId")
+                        .HasColumnType("bigint")
                         .HasColumnName("next_execution_assigned_to_user_id");
 
                     b.Property<string>("PeriodConfig")
@@ -584,12 +584,12 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnType("text")
                         .HasColumnName("note");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("INT")
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint")
                         .HasColumnName("product_id");
 
-                    b.Property<int?>("QuId")
-                        .HasColumnType("INT")
+                    b.Property<long?>("QuId")
+                        .HasColumnType("bigint")
                         .HasColumnName("qu_id");
 
                     b.Property<DateTime>("RowCreatedTimestamp")
@@ -698,12 +698,12 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnType("double precision")
                         .HasColumnName("factor");
 
-                    b.Property<int>("FromQuId")
-                        .HasColumnType("INT")
+                    b.Property<long>("FromQuId")
+                        .HasColumnType("bigint")
                         .HasColumnName("from_qu_id");
 
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("INT")
+                    b.Property<long?>("ProductId")
+                        .HasColumnType("bigint")
                         .HasColumnName("product_id");
 
                     b.Property<DateTime>("RowCreatedTimestamp")
@@ -711,8 +711,8 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
-                    b.Property<int>("ToQuId")
-                        .HasColumnType("INT")
+                    b.Property<long>("ToQuId")
+                        .HasColumnType("bigint")
                         .HasColumnName("to_qu_id");
 
                     b.HasKey("Id");
@@ -941,9 +941,9 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("amount")
                         .HasDefaultValueSql("0");
 
-                    b.Property<int?>("Done")
+                    b.Property<long?>("Done")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INT")
+                        .HasColumnType("bigint")
                         .HasColumnName("done")
                         .HasDefaultValueSql("0");
 
@@ -964,9 +964,9 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("row_created_timestamp");
 
-                    b.Property<int?>("ShoppingListId")
+                    b.Property<long?>("ShoppingListId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INT")
+                        .HasColumnType("bigint")
                         .HasColumnName("shopping_list_id")
                         .HasDefaultValueSql("1");
 

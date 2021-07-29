@@ -21,6 +21,12 @@ dotnet user-secrets set "Movies:ServiceApiKey" "12345"
 dotnet ef database update
 ```
 
+### DROP the database
+
+```
+dotnet ef database drop
+```
+
 ### Running
 
 ```
@@ -51,10 +57,11 @@ dotnet ef dbcontext scaffold "Data Source=not-grocy.db" Microsoft.EntityFramewor
 ```bash
 dotnet ef migrations add Init --project ../NotGrocy.SqliteMigrations -- --provider Sqlite
 dotnet ef migrations add Init --project ../NotGrocy.PostgresqlMigrations -- --provider Postgresql
-dotnet ef migrations add Init --project ../MysqlMigrations -- --provider Mysql
+dotnet ef migrations add Init --project ../NotGrocy.MysqlMigrations -- --provider Mysql
 
 dotnet ef migrations remove --project ../NotGrocy.SqliteMigrations -- --provider Sqlite
 dotnet ef migrations remove --project ../NotGrocy.PostgresqlMigrations -- --provider Postgresql
+dotnet ef migrations remove --project ../NotGrocy.MysqlMigrations -- --provider Mysql
 
 ```
 

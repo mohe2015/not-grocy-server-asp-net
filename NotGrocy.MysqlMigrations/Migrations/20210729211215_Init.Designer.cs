@@ -9,8 +9,8 @@ using NotGrocy;
 namespace NotGrocy.MysqlMigrations.Migrations
 {
     [DbContext(typeof(NotGrocyContext))]
-    [Migration("20210729205538_MyMigration")]
-    partial class MyMigration
+    [Migration("20210729211215_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
