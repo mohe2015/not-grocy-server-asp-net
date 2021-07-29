@@ -12,47 +12,47 @@ namespace NotGrocy.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LocationsController : ControllerBase
+    public class UserSettingsController : ControllerBase
     {
         private readonly NotGrocyContext _context;
 
-        public LocationsController(NotGrocyContext context)
+        public UserSettingsController(NotGrocyContext context)
         {
             _context = context;
         }
 
-        // GET: api/Locations
+        // GET: api/UserSettings
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
+        public async Task<ActionResult<IEnumerable<UserSetting>>> GetUserSettings()
         {
-            return await _context.Locations.ToListAsync();
+            return await _context.UserSettings.ToListAsync();
         }
 
-        // GET: api/Locations/5
+        // GET: api/UserSettings/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Location>> GetLocation(long id)
+        public async Task<ActionResult<UserSetting>> GetUserSetting(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
+            var userSetting = await _context.UserSettings.FindAsync(id);
 
-            if (location == null)
+            if (userSetting == null)
             {
                 return NotFound();
             }
 
-            return location;
+            return userSetting;
         }
 
-        // PUT: api/Locations/5
+        // PUT: api/UserSettings/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLocation(long id, Location location)
+        public async Task<IActionResult> PutUserSetting(long id, UserSetting userSetting)
         {
-            if (id != location.Id)
+            if (id != userSetting.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(location).State = EntityState.Modified;
+            _context.Entry(userSetting).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace NotGrocy.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LocationExists(id))
+                if (!UserSettingExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace NotGrocy.Controllers
             return NoContent();
         }
 
-        // POST: api/Locations
+        // POST: api/UserSettings
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Location>> PostLocation(Location location)
+        public async Task<ActionResult<UserSetting>> PostUserSetting(UserSetting userSetting)
         {
-            _context.Locations.Add(location);
+            _context.UserSettings.Add(userSetting);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLocation", new { id = location.Id }, location);
+            return CreatedAtAction("GetUserSetting", new { id = userSetting.Id }, userSetting);
         }
 
-        // DELETE: api/Locations/5
+        // DELETE: api/UserSettings/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLocation(long id)
+        public async Task<IActionResult> DeleteUserSetting(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
-            if (location == null)
+            var userSetting = await _context.UserSettings.FindAsync(id);
+            if (userSetting == null)
             {
                 return NotFound();
             }
 
-            _context.Locations.Remove(location);
+            _context.UserSettings.Remove(userSetting);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LocationExists(long id)
+        private bool UserSettingExists(long id)
         {
-            return _context.Locations.Any(e => e.Id == id);
+            return _context.UserSettings.Any(e => e.Id == id);
         }
     }
 }

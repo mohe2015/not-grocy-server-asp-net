@@ -12,47 +12,47 @@ namespace NotGrocy.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LocationsController : ControllerBase
+    public class StockLogController : ControllerBase
     {
         private readonly NotGrocyContext _context;
 
-        public LocationsController(NotGrocyContext context)
+        public StockLogController(NotGrocyContext context)
         {
             _context = context;
         }
 
-        // GET: api/Locations
+        // GET: api/StockLog
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
+        public async Task<ActionResult<IEnumerable<StockLog>>> GetStockLogs()
         {
-            return await _context.Locations.ToListAsync();
+            return await _context.StockLogs.ToListAsync();
         }
 
-        // GET: api/Locations/5
+        // GET: api/StockLog/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Location>> GetLocation(long id)
+        public async Task<ActionResult<StockLog>> GetStockLog(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
+            var stockLog = await _context.StockLogs.FindAsync(id);
 
-            if (location == null)
+            if (stockLog == null)
             {
                 return NotFound();
             }
 
-            return location;
+            return stockLog;
         }
 
-        // PUT: api/Locations/5
+        // PUT: api/StockLog/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLocation(long id, Location location)
+        public async Task<IActionResult> PutStockLog(long id, StockLog stockLog)
         {
-            if (id != location.Id)
+            if (id != stockLog.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(location).State = EntityState.Modified;
+            _context.Entry(stockLog).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace NotGrocy.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LocationExists(id))
+                if (!StockLogExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace NotGrocy.Controllers
             return NoContent();
         }
 
-        // POST: api/Locations
+        // POST: api/StockLog
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Location>> PostLocation(Location location)
+        public async Task<ActionResult<StockLog>> PostStockLog(StockLog stockLog)
         {
-            _context.Locations.Add(location);
+            _context.StockLogs.Add(stockLog);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLocation", new { id = location.Id }, location);
+            return CreatedAtAction("GetStockLog", new { id = stockLog.Id }, stockLog);
         }
 
-        // DELETE: api/Locations/5
+        // DELETE: api/StockLog/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLocation(long id)
+        public async Task<IActionResult> DeleteStockLog(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
-            if (location == null)
+            var stockLog = await _context.StockLogs.FindAsync(id);
+            if (stockLog == null)
             {
                 return NotFound();
             }
 
-            _context.Locations.Remove(location);
+            _context.StockLogs.Remove(stockLog);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LocationExists(long id)
+        private bool StockLogExists(long id)
         {
-            return _context.Locations.Any(e => e.Id == id);
+            return _context.StockLogs.Any(e => e.Id == id);
         }
     }
 }

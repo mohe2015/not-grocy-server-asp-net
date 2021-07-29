@@ -12,47 +12,47 @@ namespace NotGrocy.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LocationsController : ControllerBase
+    public class ShoppingListsController : ControllerBase
     {
         private readonly NotGrocyContext _context;
 
-        public LocationsController(NotGrocyContext context)
+        public ShoppingListsController(NotGrocyContext context)
         {
             _context = context;
         }
 
-        // GET: api/Locations
+        // GET: api/ShoppingLists
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
+        public async Task<ActionResult<IEnumerable<ShoppingList1>>> GetShoppingLists1()
         {
-            return await _context.Locations.ToListAsync();
+            return await _context.ShoppingLists1.ToListAsync();
         }
 
-        // GET: api/Locations/5
+        // GET: api/ShoppingLists/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Location>> GetLocation(long id)
+        public async Task<ActionResult<ShoppingList1>> GetShoppingList1(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
+            var shoppingList1 = await _context.ShoppingLists1.FindAsync(id);
 
-            if (location == null)
+            if (shoppingList1 == null)
             {
                 return NotFound();
             }
 
-            return location;
+            return shoppingList1;
         }
 
-        // PUT: api/Locations/5
+        // PUT: api/ShoppingLists/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLocation(long id, Location location)
+        public async Task<IActionResult> PutShoppingList1(long id, ShoppingList1 shoppingList1)
         {
-            if (id != location.Id)
+            if (id != shoppingList1.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(location).State = EntityState.Modified;
+            _context.Entry(shoppingList1).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace NotGrocy.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LocationExists(id))
+                if (!ShoppingList1Exists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace NotGrocy.Controllers
             return NoContent();
         }
 
-        // POST: api/Locations
+        // POST: api/ShoppingLists
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Location>> PostLocation(Location location)
+        public async Task<ActionResult<ShoppingList1>> PostShoppingList1(ShoppingList1 shoppingList1)
         {
-            _context.Locations.Add(location);
+            _context.ShoppingLists1.Add(shoppingList1);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLocation", new { id = location.Id }, location);
+            return CreatedAtAction("GetShoppingList1", new { id = shoppingList1.Id }, shoppingList1);
         }
 
-        // DELETE: api/Locations/5
+        // DELETE: api/ShoppingLists/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLocation(long id)
+        public async Task<IActionResult> DeleteShoppingList1(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
-            if (location == null)
+            var shoppingList1 = await _context.ShoppingLists1.FindAsync(id);
+            if (shoppingList1 == null)
             {
                 return NotFound();
             }
 
-            _context.Locations.Remove(location);
+            _context.ShoppingLists1.Remove(shoppingList1);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LocationExists(long id)
+        private bool ShoppingList1Exists(long id)
         {
-            return _context.Locations.Any(e => e.Id == id);
+            return _context.ShoppingLists1.Any(e => e.Id == id);
         }
     }
 }

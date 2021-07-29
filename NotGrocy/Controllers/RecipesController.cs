@@ -12,47 +12,47 @@ namespace NotGrocy.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LocationsController : ControllerBase
+    public class RecipesController : ControllerBase
     {
         private readonly NotGrocyContext _context;
 
-        public LocationsController(NotGrocyContext context)
+        public RecipesController(NotGrocyContext context)
         {
             _context = context;
         }
 
-        // GET: api/Locations
+        // GET: api/Recipes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
+        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipes()
         {
-            return await _context.Locations.ToListAsync();
+            return await _context.Recipes.ToListAsync();
         }
 
-        // GET: api/Locations/5
+        // GET: api/Recipes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Location>> GetLocation(long id)
+        public async Task<ActionResult<Recipe>> GetRecipe(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
+            var recipe = await _context.Recipes.FindAsync(id);
 
-            if (location == null)
+            if (recipe == null)
             {
                 return NotFound();
             }
 
-            return location;
+            return recipe;
         }
 
-        // PUT: api/Locations/5
+        // PUT: api/Recipes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLocation(long id, Location location)
+        public async Task<IActionResult> PutRecipe(long id, Recipe recipe)
         {
-            if (id != location.Id)
+            if (id != recipe.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(location).State = EntityState.Modified;
+            _context.Entry(recipe).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace NotGrocy.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LocationExists(id))
+                if (!RecipeExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace NotGrocy.Controllers
             return NoContent();
         }
 
-        // POST: api/Locations
+        // POST: api/Recipes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Location>> PostLocation(Location location)
+        public async Task<ActionResult<Recipe>> PostRecipe(Recipe recipe)
         {
-            _context.Locations.Add(location);
+            _context.Recipes.Add(recipe);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLocation", new { id = location.Id }, location);
+            return CreatedAtAction("GetRecipe", new { id = recipe.Id }, recipe);
         }
 
-        // DELETE: api/Locations/5
+        // DELETE: api/Recipes/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLocation(long id)
+        public async Task<IActionResult> DeleteRecipe(long id)
         {
-            var location = await _context.Locations.FindAsync(id);
-            if (location == null)
+            var recipe = await _context.Recipes.FindAsync(id);
+            if (recipe == null)
             {
                 return NotFound();
             }
 
-            _context.Locations.Remove(location);
+            _context.Recipes.Remove(recipe);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LocationExists(long id)
+        private bool RecipeExists(long id)
         {
-            return _context.Locations.Any(e => e.Id == id);
+            return _context.Recipes.Any(e => e.Id == id);
         }
     }
 }
