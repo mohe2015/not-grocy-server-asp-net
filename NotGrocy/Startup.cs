@@ -45,7 +45,8 @@ namespace NotGrocy
                         x => x.MigrationsAssembly("NotGrocy.PostgresqlMigrations")),
                     "Mysql" => options.UseMySql(
                         Configuration.GetConnectionString("MysqlConnection"),
-                        Microsoft.EntityFrameworkCore.ServerVersion.Parse(Configuration.GetConnectionString("MysqlConnection")),
+                        Microsoft.EntityFrameworkCore.ServerVersion.AutoDetect(Configuration.GetConnectionString("MysqlConnection")),
+                        //Microsoft.EntityFrameworkCore.ServerVersion.Parse(Configuration.GetConnectionString("MysqlConnection")),
                         x => x.MigrationsAssembly("NotGrocy.MysqlMigrations")),
 
                     _ => throw new Exception($"Unsupported provider: {provider}")

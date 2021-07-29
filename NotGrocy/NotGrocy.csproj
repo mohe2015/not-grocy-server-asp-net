@@ -25,6 +25,7 @@
     <ProjectReference Include="..\NotGrocy.Data\NotGrocy.Data.csproj" />
     <ProjectReference Include="..\NotGrocy.SqliteMigrations\NotGrocy.SqliteMigrations.csproj" />
     <ProjectReference Include="..\NotGrocy.PostgresqlMigrations\NotGrocy.PostgresqlMigrations.csproj" />
+    <ProjectReference Include="..\NotGrocy.MysqlMigrations\NotGrocy.MysqlMigrations.csproj" />
   </ItemGroup>
 
 </Project>

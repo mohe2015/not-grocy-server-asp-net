@@ -77,3 +77,4 @@ also has notes on nullability
 ### Important documentation
 
 https://www.npgsql.org/doc/types/datetime.html
+https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/wiki/Configuration-Options
