@@ -31,7 +31,7 @@ namespace NotGrocy.Models
         public long? BaseServings { get; set; }
         [Column("desired_servings")]
         public long? DesiredServings { get; set; }
-        [Column("not_check_shoppinglist", TypeName = "TINYINT")]
+        [Column("not_check_shoppinglist")]
         public long NotCheckShoppinglist { get; set; }
         [Column("type")]
         public string Type { get; set; }

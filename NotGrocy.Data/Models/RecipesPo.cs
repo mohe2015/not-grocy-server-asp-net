@@ -25,11 +25,11 @@ namespace NotGrocy.Models
         public string Note { get; set; }
         [Column("qu_id")]
         public long? QuId { get; set; }
-        [Column("only_check_single_unit_in_stock", TypeName = "TINYINT")]
+        [Column("only_check_single_unit_in_stock")]
         public long OnlyCheckSingleUnitInStock { get; set; }
         [Column("ingredient_group")]
         public string IngredientGroup { get; set; }
-        [Column("not_check_stock_fulfillment", TypeName = "TINYINT")]
+        [Column("not_check_stock_fulfillment")]
         public long NotCheckStockFulfillment { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

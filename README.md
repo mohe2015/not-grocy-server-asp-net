@@ -1,8 +1,8 @@
 # not-grocy-server-asp-net
 
 ```bash
-export DOTNET_ROOT=$(dirname $(realpath $(which dotnet))) # /nix/store/iilqnmp2wq8xlk0d7bsvqi688w181g6n-dotnet-core-combined
-export PATH="$PATH:$HOME/.dotnet/tools"
+#export DOTNET_ROOT=$(dirname $(realpath $(which dotnet))) # /nix/store/iilqnmp2wq8xlk0d7bsvqi688w181g6n-dotnet-core-combined
+#export PATH="$PATH:$HOME/.dotnet/tools"
 
 dotnet tool install dotnet-ef
 dotnet tool install dotnet-aspnet-codegenerator
@@ -24,6 +24,7 @@ dotnet ef database update
 ### Running
 
 ```
+cd NotGrocy
 dotnet watch run
 ```
 
@@ -72,3 +73,7 @@ dotnet ef migrations add MyMigration --project ../NotGrocy.PostgresqlMigrations 
 
 https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt
 also has notes on nullability
+
+### Important documentation
+
+https://www.npgsql.org/doc/types/datetime.html

@@ -15,13 +15,13 @@ namespace NotGrocy.Models
         [Key]
         [Column("id")]
         public long Id { get; set; }
-        [Column("from_qu_id", TypeName = "INT")]
+        [Column("from_qu_id")]
         public long FromQuId { get; set; }
-        [Column("to_qu_id", TypeName = "INT")]
+        [Column("to_qu_id")]
         public long ToQuId { get; set; }
         [Column("factor")]
         public double Factor { get; set; }
-        [Column("product_id", TypeName = "INT")]
+        [Column("product_id")]
         public long? ProductId { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

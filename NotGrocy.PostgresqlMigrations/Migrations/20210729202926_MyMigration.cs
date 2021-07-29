@@ -37,7 +37,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     used_in = table.Column<string>(type: "text", nullable: true),
                     charge_interval_days = table.Column<long>(type: "bigint", nullable: false),
                     row_created_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    active = table.Column<long>(type: "TINYINT", nullable: false, defaultValueSql: "1")
+                    active = table.Column<long>(type: "bigint", nullable: false, defaultValueSql: "1")
                 },
                 constraints: table =>
                 {
@@ -53,7 +53,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     battery_id = table.Column<string>(type: "text", nullable: false),
                     tracked_time = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     row_created_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    undone = table.Column<long>(type: "TINYINT", nullable: false),
+                    undone = table.Column<long>(type: "bigint", nullable: false),
                     undone_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
@@ -73,16 +73,16 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     period_days = table.Column<long>(type: "bigint", nullable: true),
                     row_created_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     period_config = table.Column<string>(type: "text", nullable: true),
-                    track_date_only = table.Column<long>(type: "TINYINT", nullable: true, defaultValueSql: "0"),
-                    rollover = table.Column<long>(type: "TINYINT", nullable: true, defaultValueSql: "0"),
+                    track_date_only = table.Column<long>(type: "bigint", nullable: true, defaultValueSql: "0"),
+                    rollover = table.Column<long>(type: "bigint", nullable: true, defaultValueSql: "0"),
                     assignment_type = table.Column<string>(type: "text", nullable: true),
                     assignment_config = table.Column<string>(type: "text", nullable: true),
                     next_execution_assigned_to_user_id = table.Column<int>(type: "INT", nullable: true),
-                    consume_product_on_execution = table.Column<long>(type: "TINYINT", nullable: false),
-                    product_id = table.Column<long>(type: "TINYINT", nullable: true),
+                    consume_product_on_execution = table.Column<long>(type: "bigint", nullable: false),
+                    product_id = table.Column<long>(type: "bigint", nullable: true),
                     product_amount = table.Column<double>(type: "double precision", nullable: true),
                     period_interval = table.Column<long>(type: "bigint", nullable: false, defaultValueSql: "1"),
-                    active = table.Column<long>(type: "TINYINT", nullable: false, defaultValueSql: "1")
+                    active = table.Column<long>(type: "bigint", nullable: false, defaultValueSql: "1")
                 },
                 constraints: table =>
                 {
@@ -99,7 +99,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     tracked_time = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     done_by_user_id = table.Column<long>(type: "bigint", nullable: true),
                     row_created_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    undone = table.Column<long>(type: "TINYINT", nullable: false),
+                    undone = table.Column<long>(type: "bigint", nullable: false),
                     undone_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
@@ -132,7 +132,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     name = table.Column<string>(type: "text", nullable: false),
                     description = table.Column<string>(type: "text", nullable: true),
                     row_created_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    is_freezer = table.Column<long>(type: "TINYINT", nullable: false)
+                    is_freezer = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -288,7 +288,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     picture_file_name = table.Column<string>(type: "text", nullable: true),
                     base_servings = table.Column<long>(type: "bigint", nullable: true, defaultValueSql: "1"),
                     desired_servings = table.Column<long>(type: "bigint", nullable: true, defaultValueSql: "1"),
-                    not_check_shoppinglist = table.Column<long>(type: "TINYINT", nullable: false),
+                    not_check_shoppinglist = table.Column<long>(type: "bigint", nullable: false),
                     type = table.Column<string>(type: "text", nullable: true, defaultValueSql: "'normal'"),
                     product_id = table.Column<long>(type: "bigint", nullable: true)
                 },
@@ -324,9 +324,9 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     amount = table.Column<double>(type: "double precision", nullable: false),
                     note = table.Column<string>(type: "text", nullable: true),
                     qu_id = table.Column<long>(type: "bigint", nullable: true),
-                    only_check_single_unit_in_stock = table.Column<long>(type: "TINYINT", nullable: false),
+                    only_check_single_unit_in_stock = table.Column<long>(type: "bigint", nullable: false),
                     ingredient_group = table.Column<string>(type: "text", nullable: true),
-                    not_check_stock_fulfillment = table.Column<long>(type: "TINYINT", nullable: false),
+                    not_check_stock_fulfillment = table.Column<long>(type: "bigint", nullable: false),
                     row_created_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     variable_amount = table.Column<string>(type: "text", nullable: true),
                     price_factor = table.Column<double>(type: "double precision", nullable: false, defaultValueSql: "1")
@@ -411,10 +411,10 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     product_id = table.Column<long>(type: "bigint", nullable: false),
                     amount = table.Column<decimal>(type: "numeric(15,2)", nullable: false),
                     best_before_date = table.Column<DateTime>(type: "DATE", nullable: false),
-                    purchased_date = table.Column<DateTime>(type: "DATE", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    purchased_date = table.Column<DateTime>(type: "DATE", nullable: false),
                     stock_id = table.Column<string>(type: "text", nullable: false),
                     price = table.Column<decimal>(type: "numeric(15,2)", nullable: false),
-                    open = table.Column<long>(type: "TINYINT", nullable: false),
+                    open = table.Column<long>(type: "bigint", nullable: false),
                     opened_date = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     row_created_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     location_id = table.Column<long>(type: "bigint", nullable: true),
@@ -440,7 +440,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     stock_id = table.Column<string>(type: "text", nullable: false),
                     transaction_type = table.Column<string>(type: "text", nullable: false),
                     price = table.Column<decimal>(type: "numeric(15,2)", nullable: false),
-                    undone = table.Column<long>(type: "TINYINT", nullable: false),
+                    undone = table.Column<long>(type: "bigint", nullable: false),
                     undone_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     opened_date = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     row_created_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
@@ -481,7 +481,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     name = table.Column<string>(type: "text", nullable: false),
                     description = table.Column<string>(type: "text", nullable: true),
                     due_date = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    done = table.Column<long>(type: "TINYINT", nullable: false),
+                    done = table.Column<long>(type: "bigint", nullable: false),
                     done_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     category_id = table.Column<long>(type: "bigint", nullable: true),
                     assigned_to_user_id = table.Column<long>(type: "bigint", nullable: true),
@@ -516,7 +516,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     key = table.Column<string>(type: "text", nullable: false),
                     value = table.Column<string>(type: "text", nullable: true),
                     row_created_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    row_updated_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false, defaultValueSql: "datetime('now', 'localtime')")
+                    row_updated_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -532,7 +532,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     name = table.Column<string>(type: "text", nullable: false),
                     caption = table.Column<string>(type: "text", nullable: false),
                     description = table.Column<string>(type: "text", nullable: true),
-                    show_in_sidebar_menu = table.Column<long>(type: "TINYINT", nullable: false, defaultValueSql: "1"),
+                    show_in_sidebar_menu = table.Column<long>(type: "bigint", nullable: false, defaultValueSql: "1"),
                     icon_css_class = table.Column<string>(type: "text", nullable: true),
                     row_created_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
@@ -567,7 +567,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     name = table.Column<string>(type: "text", nullable: false),
                     caption = table.Column<string>(type: "text", nullable: false),
                     type = table.Column<string>(type: "text", nullable: false),
-                    show_as_column_in_tables = table.Column<long>(type: "TINYINT", nullable: false),
+                    show_as_column_in_tables = table.Column<long>(type: "bigint", nullable: false),
                     row_created_timestamp = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     config = table.Column<string>(type: "text", nullable: true),
                     sort_number = table.Column<long>(type: "bigint", nullable: true)

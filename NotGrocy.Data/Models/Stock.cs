@@ -23,14 +23,17 @@ namespace NotGrocy.Models
         public double Amount { get; set; }
         [Column("best_before_date", TypeName = "DATE")]
         public DateTime BestBeforeDate { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("purchased_date", TypeName = "DATE")]
         public DateTime PurchasedDate { get; set; }
+        
         [Required]
         [Column("stock_id")]
         public string StockId { get; set; }
         [Column("price", TypeName = "DECIMAL(15, 2)")]
         public double Price { get; set; }
-        [Column("open", TypeName = "TINYINT")]
+        [Column("open")]
         public long Open { get; set; }
         [Column("opened_date")]
         public DateTime OpenedDate { get; set; }

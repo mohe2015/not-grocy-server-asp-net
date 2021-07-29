@@ -36,7 +36,7 @@ namespace NotGrocy.Models
         public string TransactionType { get; set; }
         [Column("price", TypeName = "DECIMAL(15, 2)")]
         public Double Price { get; set; }
-        [Column("undone", TypeName = "TINYINT")]
+        [Column("undone")]
         public long Undone { get; set; }
         [Column("undone_timestamp")]
         public DateTime UndoneTimestamp { get; set; }

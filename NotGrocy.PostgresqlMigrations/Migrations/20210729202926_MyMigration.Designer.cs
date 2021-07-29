@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NotGrocy.PostgresqlMigrations.Migrations
 {
     [DbContext(typeof(NotGrocyContext))]
-    [Migration("20210728233722_MyMigration")]
+    [Migration("20210729202926_MyMigration")]
     partial class MyMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -79,7 +79,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<long>("Active")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("active")
                         .HasDefaultValueSql("1");
 
@@ -141,7 +141,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("tracked_time");
 
                     b.Property<long>("Undone")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("undone");
 
                     b.Property<DateTime>("UndoneTimestamp")
@@ -166,7 +166,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<long>("Active")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("active")
                         .HasDefaultValueSql("1");
 
@@ -179,7 +179,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("assignment_type");
 
                     b.Property<long>("ConsumeProductOnExecution")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("consume_product_on_execution");
 
                     b.Property<string>("Description")
@@ -219,12 +219,12 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("product_amount");
 
                     b.Property<long?>("ProductId")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("product_id");
 
                     b.Property<long?>("Rollover")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("rollover")
                         .HasDefaultValueSql("0");
 
@@ -235,7 +235,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<long?>("TrackDateOnly")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("track_date_only")
                         .HasDefaultValueSql("0");
 
@@ -278,7 +278,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("tracked_time");
 
                     b.Property<long>("Undone")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("undone");
 
                     b.Property<DateTime>("UndoneTimestamp")
@@ -343,7 +343,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("description");
 
                     b.Property<long>("IsFreezer")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("is_freezer");
 
                     b.Property<string>("Name")
@@ -755,7 +755,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("name");
 
                     b.Property<long>("NotCheckShoppinglist")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("not_check_shoppinglist");
 
                     b.Property<string>("PictureFileName")
@@ -842,7 +842,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("ingredient_group");
 
                     b.Property<long>("NotCheckStockFulfillment")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("not_check_stock_fulfillment");
 
                     b.Property<string>("Note")
@@ -850,7 +850,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("note");
 
                     b.Property<long>("OnlyCheckSingleUnitInStock")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("only_check_single_unit_in_stock");
 
                     b.Property<double>("PriceFactor")
@@ -1067,7 +1067,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("location_id");
 
                     b.Property<long>("Open")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("open");
 
                     b.Property<DateTime>("OpenedDate")
@@ -1085,8 +1085,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("PurchasedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATE")
-                        .HasColumnName("purchased_date")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("purchased_date");
 
                     b.Property<DateTime>("RowCreatedTimestamp")
                         .ValueGeneratedOnAdd()
@@ -1188,7 +1187,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("transaction_type");
 
                     b.Property<long>("Undone")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("undone");
 
                     b.Property<DateTime>("UndoneTimestamp")
@@ -1234,7 +1233,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("description");
 
                     b.Property<long>("Done")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("done");
 
                     b.Property<DateTime>("DoneTimestamp")
@@ -1390,8 +1389,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                     b.Property<DateTime>("RowUpdatedTimestamp")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("timestamp without time zone")
-                        .HasColumnName("row_updated_timestamp")
-                        .HasDefaultValueSql("datetime('now', 'localtime')");
+                        .HasColumnName("row_updated_timestamp");
 
                     b.Property<long>("UserId")
                         .HasColumnType("bigint")
@@ -1445,7 +1443,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
 
                     b.Property<long>("ShowInSidebarMenu")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("show_in_sidebar_menu")
                         .HasDefaultValueSql("1");
 
@@ -1493,7 +1491,7 @@ namespace NotGrocy.PostgresqlMigrations.Migrations
                         .HasColumnName("row_created_timestamp");
 
                     b.Property<long>("ShowAsColumnInTables")
-                        .HasColumnType("TINYINT")
+                        .HasColumnType("bigint")
                         .HasColumnName("show_as_column_in_tables");
 
                     b.Property<long?>("SortNumber")

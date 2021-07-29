@@ -22,7 +22,7 @@ namespace NotGrocy.Models
         public string Description { get; set; }
         [Column("due_date")]
         public DateTime DueDate { get; set; }
-        [Column("done", TypeName = "TINYINT")]
+        [Column("done")]
         public long Done { get; set; }
         [Column("done_timestamp")]
         public DateTime DoneTimestamp { get; set; }

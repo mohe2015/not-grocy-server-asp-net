@@ -30,7 +30,7 @@ namespace NotGrocy.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
-        [Column("active", TypeName = "TINYINT")]
+        [Column("active")]
         public long Active { get; set; }
     }
 }

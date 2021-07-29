@@ -16,12 +16,12 @@ namespace NotGrocy.Models
         [Key]
         [Column("id")]
         public long Id { get; set; }
-        [Column("product_id", TypeName = "INT")]
+        [Column("product_id")]
         public long ProductId { get; set; }
         [Required]
         [Column("barcode")]
         public string Barcode { get; set; }
-        [Column("qu_id", TypeName = "INT")]
+        [Column("qu_id")]
         public long? QuId { get; set; }
         [Column("amount")]
         public double? Amount { get; set; }

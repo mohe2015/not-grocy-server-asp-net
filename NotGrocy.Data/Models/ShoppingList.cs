@@ -26,9 +26,9 @@ namespace NotGrocy.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
-        [Column("shopping_list_id", TypeName = "INT")]
+        [Column("shopping_list_id")]
         public long? ShoppingListId { get; set; }
-        [Column("done", TypeName = "INT")]
+        [Column("done")]
         public long? Done { get; set; }
         [Column("qu_id")]
         public long? QuId { get; set; }

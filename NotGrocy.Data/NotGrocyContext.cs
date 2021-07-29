@@ -111,20 +111,9 @@ namespace NotGrocy
                 entity.Property(e => e.ShoppingListId).HasDefaultValueSql("1");
             });
 
-            modelBuilder.Entity<Stock>(entity =>
-            {
-                entity.Property(e => e.PurchasedDate).HasDefaultValueSql("datetime('now', 'localtime')");
-            });
-
             modelBuilder.Entity<StockLog>(entity =>
             {
                 entity.Property(e => e.UserId).HasDefaultValueSql("1");
-            });
-
-        
-            modelBuilder.Entity<UserSetting>(entity =>
-            {
-                entity.Property(e => e.RowUpdatedTimestamp).HasDefaultValueSql("datetime('now', 'localtime')");
             });
 
             modelBuilder.Entity<Userentity>(entity =>

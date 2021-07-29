@@ -25,7 +25,7 @@ namespace NotGrocy.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("row_created_timestamp")]
         public DateTime RowCreatedTimestamp { get; set; }
-        [Column("undone", TypeName = "TINYINT")]
+        [Column("undone")]
         public long Undone { get; set; }
         [Column("undone_timestamp")]
         public DateTime UndoneTimestamp { get; set; }
