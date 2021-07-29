@@ -52,7 +52,10 @@ namespace NotGrocy
                     _ => throw new Exception($"Unsupported provider: {provider}")
                 });
             
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(options => {
+                // This is just a quick fix - the api should probably be designed differently.
+                // options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+            });
 
             services.AddSwaggerGen(c =>
             {
