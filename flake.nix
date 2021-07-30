@@ -9,22 +9,22 @@
       (system:
         let pkgs = nixpkgs.legacyPackages.${system}; in
         {
-          devShell = pkgs.mkShell {
+          devShell = pkgs.mkShellNoCC {
             packages = [
+              pkgs.bashInteractive # fix nested bash prompts
               (with pkgs.dotnetCorePackages; combinePackages [
                 aspnetcore_5_0
                 sdk_5_0
                 net_5_0
               ])
               pkgs.mono
-              #pkgs.vscode
               (pkgs.vscode-with-extensions.override {
                 vscodeExtensions = (with pkgs.vscode-extensions; [
                   ms-dotnettools.csharp
                   bbenoist.Nix
                 ]);
               })
-              pkgs.msbuild
+              #pkgs.msbuild
               pkgs.docker-compose
               pkgs.sqlitebrowser
             ];
