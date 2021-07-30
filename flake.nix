@@ -18,6 +18,12 @@
               ])
               pkgs.mono
               #pkgs.vscode
+              (pkgs.vscode-with-extensions.override {
+                vscodeExtensions = (with pkgs.vscode-extensions; [
+                  ms-dotnettools.csharp
+                  bbenoist.Nix
+                ]);
+              })
               pkgs.msbuild
               pkgs.docker-compose
               pkgs.sqlitebrowser
